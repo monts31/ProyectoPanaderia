@@ -24,10 +24,10 @@ namespace ProyectoPanaderia
             {
                 if (login.IniciarSesion(empleado))
                 {
-                    MessageBox.Show("Inicio de sesión exitoso");
+                    MessageBox.Show("Bienvenido: "+empleado.nombre);
                     if (empleado.rol == "Administrador")
                     {
-                        frmMenuAdmin adminForm = new frmMenuAdmin();
+                        frmMenuAdmin adminForm = new frmMenuAdmin(empleado);
                         this.Hide();
                         adminForm.ShowDialog();
                         this.Close();
