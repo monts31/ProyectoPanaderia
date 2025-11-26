@@ -17,10 +17,39 @@ namespace ProyectoPanaderia
         public frmMenuAdmin()
         {
             InitializeComponent();
-          
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            frmProductos productos = new frmProductos();
+            this.Hide();
+            productos.ShowDialog();
+            this.Close();
+        }
+
+        private void btnDetallesdeorden_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAuditorias_Click(object sender, EventArgs e)
+        {
+            frmAuditorias auditorias = new frmAuditorias();
+            this.Hide();
+            auditorias.ShowDialog();
+            this.Close();
+        }
+
+        private void btnEmpleados_Click(object sender, EventArgs e)
+        {
+            frmCrudEmpleados empleados = new frmCrudEmpleados();
+            this.Hide();
+            empleados.ShowDialog();
+            this.Close();
+        }
+
+        private void btnVentas_Click(object sender, EventArgs e)
         {
             frmVentas venta = new frmVentas();
             this.Hide();

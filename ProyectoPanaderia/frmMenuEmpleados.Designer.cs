@@ -28,49 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button5 = new Button();
-            button4 = new Button();
-            button1 = new Button();
+            btnDetallesdeorden = new Button();
+            btnProductos = new Button();
+            btnVentas = new Button();
             SuspendLayout();
             // 
-            // button5
+            // btnDetallesdeorden
             // 
-            button5.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button5.Location = new Point(544, 213);
-            button5.Name = "button5";
-            button5.Size = new Size(215, 37);
-            button5.TabIndex = 7;
-            button5.Text = "Detalles de orden";
-            button5.UseVisualStyleBackColor = true;
+            btnDetallesdeorden.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnDetallesdeorden.Location = new Point(544, 213);
+            btnDetallesdeorden.Name = "btnDetallesdeorden";
+            btnDetallesdeorden.Size = new Size(215, 37);
+            btnDetallesdeorden.TabIndex = 7;
+            btnDetallesdeorden.Text = "Detalles de orden";
+            btnDetallesdeorden.UseVisualStyleBackColor = true;
+            btnDetallesdeorden.Click += btnDetallesdeorden_Click;
             // 
-            // button4
+            // btnProductos
             // 
-            button4.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button4.Location = new Point(286, 213);
-            button4.Name = "button4";
-            button4.Size = new Size(215, 37);
-            button4.TabIndex = 6;
-            button4.Text = "Productos";
-            button4.UseVisualStyleBackColor = true;
+            btnProductos.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnProductos.Location = new Point(286, 213);
+            btnProductos.Name = "btnProductos";
+            btnProductos.Size = new Size(215, 37);
+            btnProductos.TabIndex = 6;
+            btnProductos.Text = "Productos";
+            btnProductos.UseVisualStyleBackColor = true;
+            btnProductos.Click += btnProductos_Click;
             // 
-            // button1
+            // btnVentas
             // 
-            button1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(34, 213);
-            button1.Name = "button1";
-            button1.Size = new Size(215, 37);
-            button1.TabIndex = 5;
-            button1.Text = "Ventas";
-            button1.UseVisualStyleBackColor = true;
+            btnVentas.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnVentas.Location = new Point(34, 213);
+            btnVentas.Name = "btnVentas";
+            btnVentas.Size = new Size(215, 37);
+            btnVentas.TabIndex = 5;
+            btnVentas.Text = "Ventas";
+            btnVentas.UseVisualStyleBackColor = true;
+            btnVentas.Click += button1_Click;
             // 
             // frmMenuEmpleados
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(button5);
-            Controls.Add(button4);
-            Controls.Add(button1);
+            Controls.Add(btnDetallesdeorden);
+            Controls.Add(btnProductos);
+            Controls.Add(btnVentas);
             Name = "frmMenuEmpleados";
             Text = "Form2";
             ResumeLayout(false);
@@ -78,8 +81,8 @@
 
         #endregion
 
-        private Button button5;
-        private Button button4;
-        private Button button1;
+        private Button btnDetallesdeorden;
+        private Button btnProductos;
+        private Button btnVentas;
     }
 }

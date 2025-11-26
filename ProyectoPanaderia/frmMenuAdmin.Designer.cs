@@ -28,85 +28,88 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            button2 = new Button();
-            button4 = new Button();
-            button6 = new Button();
-            button5 = new Button();
+            btnProductos = new Button();
+            btnAuditorias = new Button();
+            btnDetallesdeorden = new Button();
+            btnEmpleados = new Button();
+            btnVentas = new Button();
             SuspendLayout();
             // 
-            // button1
+            // btnProductos
             // 
-            button1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(65, 281);
-            button1.Name = "button1";
-            button1.Size = new Size(215, 37);
-            button1.TabIndex = 0;
-            button1.Text = "Ventas";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnProductos.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnProductos.Location = new Point(310, 186);
+            btnProductos.Name = "btnProductos";
+            btnProductos.Size = new Size(215, 37);
+            btnProductos.TabIndex = 3;
+            btnProductos.Text = "Productos";
+            btnProductos.UseVisualStyleBackColor = true;
+            btnProductos.Click += btnProductos_Click;
             // 
-            // button2
+            // btnAuditorias
             // 
-            button2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.Location = new Point(65, 91);
-            button2.Name = "button2";
-            button2.Size = new Size(215, 37);
-            button2.TabIndex = 1;
-            button2.Text = "Empleados";
-            button2.UseVisualStyleBackColor = true;
+            btnAuditorias.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnAuditorias.Location = new Point(559, 91);
+            btnAuditorias.Name = "btnAuditorias";
+            btnAuditorias.Size = new Size(215, 37);
+            btnAuditorias.TabIndex = 5;
+            btnAuditorias.Text = "Auditorias";
+            btnAuditorias.UseVisualStyleBackColor = true;
+            btnAuditorias.Click += btnAuditorias_Click;
             // 
-            // button4
+            // btnDetallesdeorden
             // 
-            button4.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button4.Location = new Point(310, 186);
-            button4.Name = "button4";
-            button4.Size = new Size(215, 37);
-            button4.TabIndex = 3;
-            button4.Text = "Productos";
-            button4.UseVisualStyleBackColor = true;
+            btnDetallesdeorden.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnDetallesdeorden.Location = new Point(559, 281);
+            btnDetallesdeorden.Name = "btnDetallesdeorden";
+            btnDetallesdeorden.Size = new Size(215, 37);
+            btnDetallesdeorden.TabIndex = 4;
+            btnDetallesdeorden.Text = "Detalles de orden";
+            btnDetallesdeorden.UseVisualStyleBackColor = true;
+            btnDetallesdeorden.Click += btnDetallesdeorden_Click;
             // 
-            // button6
+            // btnEmpleados
             // 
-            button6.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button6.Location = new Point(559, 91);
-            button6.Name = "button6";
-            button6.Size = new Size(215, 37);
-            button6.TabIndex = 5;
-            button6.Text = "Auditorias";
-            button6.UseVisualStyleBackColor = true;
+            btnEmpleados.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnEmpleados.Location = new Point(80, 91);
+            btnEmpleados.Name = "btnEmpleados";
+            btnEmpleados.Size = new Size(215, 37);
+            btnEmpleados.TabIndex = 7;
+            btnEmpleados.Text = "Empleados";
+            btnEmpleados.UseVisualStyleBackColor = true;
+            btnEmpleados.Click += btnEmpleados_Click;
             // 
-            // button5
+            // btnVentas
             // 
-            button5.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button5.Location = new Point(559, 281);
-            button5.Name = "button5";
-            button5.Size = new Size(215, 37);
-            button5.TabIndex = 4;
-            button5.Text = "Detalles de orden";
-            button5.UseVisualStyleBackColor = true;
+            btnVentas.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnVentas.Location = new Point(80, 281);
+            btnVentas.Name = "btnVentas";
+            btnVentas.Size = new Size(215, 37);
+            btnVentas.TabIndex = 6;
+            btnVentas.Text = "Ventas";
+            btnVentas.UseVisualStyleBackColor = true;
+            btnVentas.Click += btnVentas_Click;
             // 
             // frmMenuAdmin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(button6);
-            Controls.Add(button5);
-            Controls.Add(button4);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnEmpleados);
+            Controls.Add(btnVentas);
+            Controls.Add(btnAuditorias);
+            Controls.Add(btnDetallesdeorden);
+            Controls.Add(btnProductos);
             Name = "frmMenuAdmin";
             Text = "Form2";
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Button button1;
-        private Button button2;
-        private Button button4;
-        private Button button6;
-        private Button button5;
+        private Button btnProductos;
+        private Button btnAuditorias;
+        private Button btnDetallesdeorden;
+        private Button btnEmpleados;
+        private Button btnVentas;
     }
 }

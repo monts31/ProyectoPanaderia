@@ -16,5 +16,26 @@ namespace ProyectoPanaderia
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmVentas venta = new frmVentas();
+            this.Hide();
+            venta.ShowDialog();
+            this.Close();
+        }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            frmProductos productos = new frmProductos();
+            this.Hide();
+            productos.ShowDialog();
+            this.Close();
+        }
+
+        private void btnDetallesdeorden_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
