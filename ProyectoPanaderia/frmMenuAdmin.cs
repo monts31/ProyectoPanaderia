@@ -14,10 +14,10 @@ namespace ProyectoPanaderia
     public partial class frmMenuAdmin : Form
     {
         clsEmpleados empleado = new clsEmpleados();
-        public frmMenuAdmin(clsEmpleados empleado)
+        public frmMenuAdmin()
         {
             InitializeComponent();
-            label1.Text = "Administrador: "+empleado.nombre;
+          
         }
 
         private void button1_Click(object sender, EventArgs e)

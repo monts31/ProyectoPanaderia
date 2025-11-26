@@ -63,7 +63,7 @@
             lblEmpleados.Size = new Size(87, 20);
             lblEmpleados.TabIndex = 3;
             lblEmpleados.Text = "Empleados ";
-            lblEmpleados.Click += this.lblEmpleados_Click;
+            //lblEmpleados.Click += this.lblEmpleados_Click;
             // 
             // grbDatosEmpleado
             // 
@@ -85,7 +85,7 @@
             grbDatosEmpleado.TabIndex = 4;
             grbDatosEmpleado.TabStop = false;
             grbDatosEmpleado.Text = "Datos del empleado";
-            grbDatosEmpleado.Enter += this.grbDatosEmpleado_Enter;
+            //grbDatosEmpleado.Enter += this.grbDatosEmpleado_Enter;
             // 
             // grbDatosUsuario
             // 
@@ -101,7 +101,7 @@
             grbDatosUsuario.TabIndex = 5;
             grbDatosUsuario.TabStop = false;
             grbDatosUsuario.Text = "Datos de usuario";
-            grbDatosUsuario.Enter += this.grbDatosUsuario_Enter;
+            //grbDatosUsuario.Enter += this.grbDatosUsuario_Enter;
             // 
             // label1
             // 

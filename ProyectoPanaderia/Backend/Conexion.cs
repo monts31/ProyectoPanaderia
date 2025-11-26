@@ -13,7 +13,7 @@ namespace ProyectoPanaderia.Backend
         {
 
             string servidor = "localhost";
-            string bd = "login";
+            string bd = "lostresbombones";
             string usuario = "root";
             string contraseña = "31tv9";
 

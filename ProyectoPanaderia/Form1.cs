@@ -27,7 +27,7 @@ namespace ProyectoPanaderia
                     MessageBox.Show("Bienvenido: "+empleado.nombre);
                     if (empleado.rol == "Administrador")
                     {
-                        frmMenuAdmin adminForm = new frmMenuAdmin(empleado);
+                        frmMenuAdmin adminForm = new frmMenuAdmin();
                         this.Hide();
                         adminForm.ShowDialog();
                         this.Close();

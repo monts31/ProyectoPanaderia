@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoPanaderia.POJO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace ProyectoPanaderia
 {
     public partial class frmCrudEmpleados : Form
     {
+        
         public frmCrudEmpleados()
         {
             InitializeComponent();
