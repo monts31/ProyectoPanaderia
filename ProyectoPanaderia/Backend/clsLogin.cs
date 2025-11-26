@@ -15,8 +15,8 @@ namespace ProyectoPanaderia.Backend
         {
 
             MySqlConnection cn = new MySqlConnection();
-            //31tv9
-            cn.ConnectionString = "server=localhost; database=lostresbombones; user=root; pwd=31tv9";
+            //31tv9    Dagu12oa
+            cn.ConnectionString = "server=localhost; database=lostresbombones; user=root; pwd=Dagu12oa";
             try
             {
                 cn.Open();

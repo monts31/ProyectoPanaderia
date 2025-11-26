@@ -28,13 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             btnEliminar = new Button();
             btnModificar = new Button();
             btnInsertar = new Button();
             lblCrudProductos = new Label();
             btnRegresar = new Button();
             dgvProductos = new DataGridView();
+            idProductoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            nombreDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            descripcionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            precioDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            stockDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            fotoDataGridViewImageColumn = new DataGridViewImageColumn();
+            clsProductosBindingSource = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)clsProductosBindingSource).BeginInit();
             SuspendLayout();
             // 
             // btnEliminar
@@ -45,6 +54,7 @@
             btnEliminar.TabIndex = 11;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnModificar
             // 
@@ -83,15 +93,71 @@
             btnRegresar.TabIndex = 7;
             btnRegresar.Text = "<---";
             btnRegresar.UseVisualStyleBackColor = true;
+            btnRegresar.Click += btnRegresar_Click;
             // 
             // dgvProductos
             // 
+            dgvProductos.AutoGenerateColumns = false;
             dgvProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvProductos.Columns.AddRange(new DataGridViewColumn[] { idProductoDataGridViewTextBoxColumn, nombreDataGridViewTextBoxColumn, descripcionDataGridViewTextBoxColumn, precioDataGridViewTextBoxColumn, stockDataGridViewTextBoxColumn, fotoDataGridViewImageColumn });
+            dgvProductos.DataSource = clsProductosBindingSource;
             dgvProductos.Location = new Point(39, 79);
             dgvProductos.Name = "dgvProductos";
             dgvProductos.RowHeadersWidth = 51;
             dgvProductos.Size = new Size(909, 365);
             dgvProductos.TabIndex = 6;
+            // 
+            // idProductoDataGridViewTextBoxColumn
+            // 
+            idProductoDataGridViewTextBoxColumn.DataPropertyName = "id_Producto";
+            idProductoDataGridViewTextBoxColumn.HeaderText = "id_Producto";
+            idProductoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            idProductoDataGridViewTextBoxColumn.Name = "idProductoDataGridViewTextBoxColumn";
+            idProductoDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
+            nombreDataGridViewTextBoxColumn.HeaderText = "nombre";
+            nombreDataGridViewTextBoxColumn.MinimumWidth = 6;
+            nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            nombreDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // descripcionDataGridViewTextBoxColumn
+            // 
+            descripcionDataGridViewTextBoxColumn.DataPropertyName = "descripcion";
+            descripcionDataGridViewTextBoxColumn.HeaderText = "descripcion";
+            descripcionDataGridViewTextBoxColumn.MinimumWidth = 6;
+            descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
+            descripcionDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // precioDataGridViewTextBoxColumn
+            // 
+            precioDataGridViewTextBoxColumn.DataPropertyName = "precio";
+            precioDataGridViewTextBoxColumn.HeaderText = "precio";
+            precioDataGridViewTextBoxColumn.MinimumWidth = 6;
+            precioDataGridViewTextBoxColumn.Name = "precioDataGridViewTextBoxColumn";
+            precioDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // stockDataGridViewTextBoxColumn
+            // 
+            stockDataGridViewTextBoxColumn.DataPropertyName = "stock";
+            stockDataGridViewTextBoxColumn.HeaderText = "stock";
+            stockDataGridViewTextBoxColumn.MinimumWidth = 6;
+            stockDataGridViewTextBoxColumn.Name = "stockDataGridViewTextBoxColumn";
+            stockDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // fotoDataGridViewImageColumn
+            // 
+            fotoDataGridViewImageColumn.DataPropertyName = "foto";
+            fotoDataGridViewImageColumn.HeaderText = "foto";
+            fotoDataGridViewImageColumn.MinimumWidth = 6;
+            fotoDataGridViewImageColumn.Name = "fotoDataGridViewImageColumn";
+            fotoDataGridViewImageColumn.Width = 125;
+            // 
+            // clsProductosBindingSource
+            // 
+            clsProductosBindingSource.DataSource = typeof(POJO.clsProductos);
             // 
             // frmCrudProductos
             // 
@@ -107,6 +173,7 @@
             Name = "frmCrudProductos";
             Text = "frmCrudProductos";
             ((System.ComponentModel.ISupportInitialize)dgvProductos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)clsProductosBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -119,5 +186,12 @@
         private Label lblCrudProductos;
         private Button btnRegresar;
         private DataGridView dgvProductos;
+        private DataGridViewTextBoxColumn idProductoDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn precioDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn stockDataGridViewTextBoxColumn;
+        private DataGridViewImageColumn fotoDataGridViewImageColumn;
+        private BindingSource clsProductosBindingSource;
     }
 }

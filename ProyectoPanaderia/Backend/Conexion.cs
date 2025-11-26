@@ -7,30 +7,13 @@ using MySql.Data.MySqlClient;
 
 namespace ProyectoPanaderia.Backend
 {
-    class Conexion
+    public class Conexion
     {
+
+        private static string datos = "server=localhost; database=lostresbombones; user=root; pwd=Dagu12oa";
         public static MySqlConnection conexion()
         {
-
-            string servidor = "localhost";
-            string bd = "lostresbombones";
-            string usuario = "root";
-            string contraseña = "31tv9";
-
-            string cadenaconexion = "Database=" + bd + "; Data source=" + servidor + "; user id="
-                + usuario + "; password=" + contraseña;
-
-            try
-            {
-                MySqlConnection conexionBD = new MySqlConnection(cadenaconexion);
-                return conexionBD;
-            }
-            catch (MySqlException ex)
-            {
-                Console.WriteLine("Error" + ex.Message);
-                return null;
-            }
-
+            return new MySqlConnection(datos);
         }
     }
 }

@@ -22,7 +22,7 @@ namespace ProyectoPanaderia
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            frmProductos productos = new frmProductos();
+            frmCrudProductos productos = new frmCrudProductos();
             this.Hide();
             productos.ShowDialog();
             this.Close();
