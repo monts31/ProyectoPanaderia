@@ -56,5 +56,13 @@ namespace ProyectoPanaderia
             venta.ShowDialog();
             this.Close();
         }
+
+        private void Crud_Empleados_Click(object sender, EventArgs e)
+        {
+            frmCrudEmpleados crudEmpleados = new frmCrudEmpleados();
+            this.Hide();
+            crudEmpleados.ShowDialog();
+            this.Close();
+        }
     }
 }

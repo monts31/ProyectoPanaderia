@@ -33,12 +33,13 @@
             btnDetallesdeorden = new Button();
             btnEmpleados = new Button();
             btnVentas = new Button();
+            Crud_Empleados = new Button();
             SuspendLayout();
             // 
             // btnProductos
             // 
             btnProductos.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnProductos.Location = new Point(310, 186);
+            btnProductos.Location = new Point(310, 221);
             btnProductos.Name = "btnProductos";
             btnProductos.Size = new Size(215, 37);
             btnProductos.TabIndex = 3;
@@ -90,11 +91,23 @@
             btnVentas.UseVisualStyleBackColor = true;
             btnVentas.Click += btnVentas_Click;
             // 
+            // Crud_Empleados
+            // 
+            Crud_Empleados.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Crud_Empleados.Location = new Point(310, 146);
+            Crud_Empleados.Name = "Crud_Empleados";
+            Crud_Empleados.Size = new Size(215, 37);
+            Crud_Empleados.TabIndex = 8;
+            Crud_Empleados.Text = "CRUD Empleados";
+            Crud_Empleados.UseVisualStyleBackColor = true;
+            Crud_Empleados.Click += Crud_Empleados_Click;
+            // 
             // frmMenuAdmin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(Crud_Empleados);
             Controls.Add(btnEmpleados);
             Controls.Add(btnVentas);
             Controls.Add(btnAuditorias);
@@ -111,5 +124,6 @@
         private Button btnDetallesdeorden;
         private Button btnEmpleados;
         private Button btnVentas;
+        private Button Crud_Empleados;
     }
 }
