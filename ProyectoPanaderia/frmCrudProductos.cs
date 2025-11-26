@@ -17,15 +17,23 @@ namespace ProyectoPanaderia
 {
     public partial class frmCrudProductos : Form
     {
+        clsEmpleados empleadoActual = new clsEmpleados();
         public frmCrudProductos()
         {
             InitializeComponent();
             cargarProductos();
         }
 
+        public frmCrudProductos(clsEmpleados empleado)
+        {
+            InitializeComponent();
+            empleadoActual = empleado;
+            cargarProductos();
+        }
+
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-            frmProductos producto = new frmProductos();
+            frmProductos producto = new frmProductos(empleadoActual);
             this.Hide();
             producto.ShowDialog();
             this.Close();
@@ -38,7 +46,7 @@ namespace ProyectoPanaderia
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
-            frmMenuAdmin menu = new frmMenuAdmin();
+            frmMenuAdmin menu = new frmMenuAdmin(empleadoActual);
             this.Hide();
             menu.ShowDialog();
             this.Close();
@@ -47,7 +55,7 @@ namespace ProyectoPanaderia
         public void cargarProductos()
         {
             clsProductosConsultas cons = new clsProductosConsultas();
-            dgvProductos.DataSource = cons.llenarTabla();
+            dgvProductos.DataSource = cons.obtenerProductos();
 
             dgvProductos.AllowUserToDeleteRows = true;
             dgvProductos.ReadOnly = false;

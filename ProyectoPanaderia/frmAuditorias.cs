@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoPanaderia.POJO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,24 @@ namespace ProyectoPanaderia
 {
     public partial class frmAuditorias : Form
     {
+        clsEmpleados empleadoActual = new clsEmpleados();
         public frmAuditorias()
         {
             InitializeComponent();
+        }
+
+        public frmAuditorias (clsEmpleados empleados)
+        {
+            InitializeComponent();
+           empleadoActual = empleados;
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            frmMenuAdmin menu = new frmMenuAdmin(empleadoActual);
+            this.Hide();
+            menu.ShowDialog();
+            this.Close();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoPanaderia.POJO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,21 @@ namespace ProyectoPanaderia
 {
     public partial class frmMenuEmpleados : Form
     {
+        clsEmpleados empleadoActual = new clsEmpleados();
         public frmMenuEmpleados()
         {
             InitializeComponent();
         }
 
+        public frmMenuEmpleados(clsEmpleados empleados)
+        {
+            InitializeComponent();
+            empleadoActual = empleados;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            frmVentas venta = new frmVentas();
+            frmVentas venta = new frmVentas(empleadoActual);
             this.Hide();
             venta.ShowDialog();
             this.Close();
@@ -27,7 +35,7 @@ namespace ProyectoPanaderia
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            frmProductos productos = new frmProductos();
+            frmProductos productos = new frmProductos(empleadoActual);
             this.Hide();
             productos.ShowDialog();
             this.Close();

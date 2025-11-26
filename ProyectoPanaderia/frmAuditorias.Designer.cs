@@ -29,23 +29,38 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
+            btnRegresar = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(89, 87);
+            dataGridView1.Location = new Point(102, 116);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(611, 228);
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(698, 304);
             dataGridView1.TabIndex = 0;
+            // 
+            // btnRegresar
+            // 
+            btnRegresar.Location = new Point(5, 3);
+            btnRegresar.Name = "btnRegresar";
+            btnRegresar.Size = new Size(46, 41);
+            btnRegresar.TabIndex = 8;
+            btnRegresar.Text = "<---";
+            btnRegresar.UseVisualStyleBackColor = true;
+            btnRegresar.Click += btnRegresar_Click;
             // 
             // frmAuditorias
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
+            Controls.Add(btnRegresar);
             Controls.Add(dataGridView1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "frmAuditorias";
             Text = "frmAuditorias";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -55,5 +70,6 @@
         #endregion
 
         private DataGridView dataGridView1;
+        private Button btnRegresar;
     }
 }

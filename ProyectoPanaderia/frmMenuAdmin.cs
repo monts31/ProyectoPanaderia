@@ -13,16 +13,23 @@ namespace ProyectoPanaderia
 {
     public partial class frmMenuAdmin : Form
     {
-        clsEmpleados empleado = new clsEmpleados();
+        
         public frmMenuAdmin()
         {
             InitializeComponent();
 
         }
+        clsEmpleados empleadoActual = new clsEmpleados();
+        public frmMenuAdmin(clsEmpleados empleado)
+        {
+            InitializeComponent();
+            empleadoActual = empleado;
+            lblEmpleado.Text = "Bienvenido: " + empleadoActual.nombre;
+        }
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            frmCrudProductos productos = new frmCrudProductos();
+            frmCrudProductos productos = new frmCrudProductos(empleadoActual);
             this.Hide();
             productos.ShowDialog();
             this.Close();
@@ -35,7 +42,7 @@ namespace ProyectoPanaderia
 
         private void btnAuditorias_Click(object sender, EventArgs e)
         {
-            frmAuditorias auditorias = new frmAuditorias();
+            frmAuditorias auditorias = new frmAuditorias(empleadoActual);
             this.Hide();
             auditorias.ShowDialog();
             this.Close();
@@ -43,7 +50,7 @@ namespace ProyectoPanaderia
 
         private void btnEmpleados_Click(object sender, EventArgs e)
         {
-            frmCrudEmpleados empleados = new frmCrudEmpleados();
+            frmCrudEmpleados empleados = new frmCrudEmpleados(empleadoActual);
             this.Hide();
             empleados.ShowDialog();
             this.Close();
@@ -51,7 +58,7 @@ namespace ProyectoPanaderia
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            frmVentas venta = new frmVentas();
+            frmVentas venta = new frmVentas(empleadoActual);
             this.Hide();
             venta.ShowDialog();
             this.Close();
@@ -59,7 +66,7 @@ namespace ProyectoPanaderia
 
         private void Crud_Empleados_Click(object sender, EventArgs e)
         {
-            frmCrudEmpleados crudEmpleados = new frmCrudEmpleados();
+            frmCrudEmpleados crudEmpleados = new frmCrudEmpleados(empleadoActual);
             this.Hide();
             crudEmpleados.ShowDialog();
             this.Close();

@@ -14,11 +14,19 @@ namespace ProyectoPanaderia
 {
     public partial class frmVentas : Form
     {
+        clsEmpleados empleadoActual = new clsEmpleados();
+
         public MostradoresProductos controller = new MostradoresProductos();
         public frmVentas()
         {
             InitializeComponent();
 
+        }
+
+        public frmVentas(clsEmpleados empleado)
+        {
+            InitializeComponent();
+            empleadoActual = empleado;
         }
 
         public void cargarProductos()
@@ -75,9 +83,17 @@ namespace ProyectoPanaderia
             foreach (DataGridViewRow fila in dataGridView1.Rows)
             {
                 clsDetallesOrden detallesOrden = new clsDetallesOrden();
-               
+
                 total += Convert.ToDecimal(fila.Cells["Subtotal"].Value);
             }
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            frmMenuAdmin menu = new frmMenuAdmin(empleadoActual);
+            this.Hide();
+            menu.ShowDialog();
+            this.Close();
         }
     }
 }

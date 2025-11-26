@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoPanaderia.POJO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,16 +13,23 @@ namespace ProyectoPanaderia
 {
     public partial class frmProductos : Form
     {
+        clsEmpleados empleadoActual = new clsEmpleados();
         public frmProductos()
         {
             InitializeComponent();
         }
 
+        public frmProductos(clsEmpleados empleados)
+        {
+            InitializeComponent();
+            empleadoActual = empleados;
+        }
+
         private void btnRegresar_Click(object sender, EventArgs e)
         {
-            frmCrudEmpleados crudEmpleados = new frmCrudEmpleados();
+            frmCrudProductos crud = new frmCrudProductos(empleadoActual);
             this.Hide();
-            crudEmpleados.ShowDialog();
+            crud.ShowDialog();
             this.Close();
         }
 
