@@ -16,9 +16,9 @@ namespace ProyectoPanaderia.Backend
         }
         public System.Data.DataTable obtenerProductos()
         {
-            MySqlConnection cn = new MySqlConnection();
-            cn.ConnectionString = "server=localhost; database=lostresbombones; user=root; pwd=Dagu12oa";
-            //MySqlConnection cn = Conexion.conexion();
+            //MySqlConnection cn = new MySqlConnection();
+            //cn.ConnectionString = "server=localhost; database=lostresbombones; user=root; pwd=Dagu12oa";
+            MySqlConnection cn = Conexion.conexion();
 
             try
             {

@@ -1,4 +1,5 @@
-﻿using ProyectoPanaderia.POJO;
+﻿using ProyectoPanaderia.Backend;
+using ProyectoPanaderia.POJO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +24,7 @@ namespace ProyectoPanaderia
         {
             InitializeComponent();
             empleadoActual = empleados;
+            txtIdEmpleado.Text = empleadoActual.id_Empleado.ToString();
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -35,7 +37,30 @@ namespace ProyectoPanaderia
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            if (txtNombre.Text == "" || txtDescripcion.Text == "" || txtPrecio.Text == "" || txtStock.Text == "")
+            {
+                MessageBox.Show("Se deben completar todos los campos.");
+                return;
+            }
+            else
+            {
+                clsProductos producto = new clsProductos();
+                producto.nombre = txtNombre.Text.Trim();
+                producto.descripcion = txtDescripcion.Text.Trim();
+                producto.precio = float.Parse(txtPrecio.Text.Trim());
+                producto.stock = int.Parse(txtStock.Text.Trim());
 
+                try
+                {
+                    clsProductosConsultas guardar = new clsProductosConsultas();
+                    guardar.insertarProducto(producto);
+                    MessageBox.Show("Producto guardado exitosamente.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al guardar el producto: " + ex.Message);
+                }
+            }
         }
     }
 }

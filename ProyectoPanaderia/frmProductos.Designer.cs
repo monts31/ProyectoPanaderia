@@ -30,9 +30,9 @@
         {
             btnGuardar = new Button();
             grbProducto = new GroupBox();
-            txtSueldo = new TextBox();
-            txtHoras = new TextBox();
-            txtTelefono = new TextBox();
+            txtStock = new TextBox();
+            txtPrecio = new TextBox();
+            txtDescripcion = new TextBox();
             txtNombre = new TextBox();
             txtIdEmpleado = new TextBox();
             label5 = new Label();
@@ -58,9 +58,9 @@
             // 
             // grbProducto
             // 
-            grbProducto.Controls.Add(txtSueldo);
-            grbProducto.Controls.Add(txtHoras);
-            grbProducto.Controls.Add(txtTelefono);
+            grbProducto.Controls.Add(txtStock);
+            grbProducto.Controls.Add(txtPrecio);
+            grbProducto.Controls.Add(txtDescripcion);
             grbProducto.Controls.Add(txtNombre);
             grbProducto.Controls.Add(txtIdEmpleado);
             grbProducto.Controls.Add(label5);
@@ -76,32 +76,32 @@
             grbProducto.TabStop = false;
             grbProducto.Text = "Producto";
             // 
-            // txtSueldo
+            // txtStock
             // 
-            txtSueldo.AcceptsTab = true;
-            txtSueldo.Location = new Point(77, 345);
-            txtSueldo.Multiline = true;
-            txtSueldo.Name = "txtSueldo";
-            txtSueldo.Size = new Size(190, 38);
-            txtSueldo.TabIndex = 10;
+            txtStock.AcceptsTab = true;
+            txtStock.Location = new Point(77, 345);
+            txtStock.Multiline = true;
+            txtStock.Name = "txtStock";
+            txtStock.Size = new Size(190, 38);
+            txtStock.TabIndex = 10;
             // 
-            // txtHoras
+            // txtPrecio
             // 
-            txtHoras.AcceptsTab = true;
-            txtHoras.Location = new Point(82, 291);
-            txtHoras.Multiline = true;
-            txtHoras.Name = "txtHoras";
-            txtHoras.Size = new Size(190, 38);
-            txtHoras.TabIndex = 9;
+            txtPrecio.AcceptsTab = true;
+            txtPrecio.Location = new Point(82, 291);
+            txtPrecio.Multiline = true;
+            txtPrecio.Name = "txtPrecio";
+            txtPrecio.Size = new Size(190, 38);
+            txtPrecio.TabIndex = 9;
             // 
-            // txtTelefono
+            // txtDescripcion
             // 
-            txtTelefono.AcceptsTab = true;
-            txtTelefono.Location = new Point(112, 149);
-            txtTelefono.Multiline = true;
-            txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(274, 129);
-            txtTelefono.TabIndex = 8;
+            txtDescripcion.AcceptsTab = true;
+            txtDescripcion.Location = new Point(112, 149);
+            txtDescripcion.Multiline = true;
+            txtDescripcion.Name = "txtDescripcion";
+            txtDescripcion.Size = new Size(274, 129);
+            txtDescripcion.TabIndex = 8;
             // 
             // txtNombre
             // 
@@ -216,9 +216,9 @@
 
         private Button btnGuardar;
         private GroupBox grbProducto;
-        private TextBox txtSueldo;
-        private TextBox txtHoras;
-        private TextBox txtTelefono;
+        private TextBox txtStock;
+        private TextBox txtPrecio;
+        private TextBox txtDescripcion;
         private TextBox txtNombre;
         private TextBox txtIdEmpleado;
         private Label label5;

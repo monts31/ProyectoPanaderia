@@ -13,10 +13,7 @@ namespace ProyectoPanaderia.Backend
     {
         public bool IniciarSesion(clsEmpleados empleado)
         {
-
-            MySqlConnection cn = new MySqlConnection();
-            //31tv9    Dagu12oa
-            cn.ConnectionString = "server=localhost; database=lostresbombones; user=root; pwd=Dagu12oa";
+            MySqlConnection cn = Conexion.conexion();
             try
             {
                 cn.Open();

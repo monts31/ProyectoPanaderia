@@ -1,4 +1,5 @@
-﻿using ProyectoPanaderia.POJO;
+﻿using ProyectoPanaderia.Backend;
+using ProyectoPanaderia.POJO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,6 +25,7 @@ namespace ProyectoPanaderia
         {
             InitializeComponent();
             empleadoActual = empleado;
+            cargarProductos();
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -48,6 +50,15 @@ namespace ProyectoPanaderia
             this.Hide();
             insertar.ShowDialog();
             this.Close();
+        }
+
+        public void cargarProductos()
+        {
+            clsEmpleadosConsultas cons = new clsEmpleadosConsultas();
+            dgvEmpleados.DataSource = cons.llenarTabla();
+
+            dgvEmpleados.AllowUserToDeleteRows = true;
+            dgvEmpleados.ReadOnly = false;
         }
     }
 }
