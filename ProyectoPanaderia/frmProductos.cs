@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.IO;
+using System.Drawing.Imaging;
 
 namespace ProyectoPanaderia
 {
@@ -116,6 +118,42 @@ namespace ProyectoPanaderia
 
             // Bloquear todo lo demás
             e.Handled = true;
+        }
+
+        private void txtStock_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir: borrar (Backspace)
+            if (char.IsControl(e.KeyChar))
+            {
+                return;
+            }
+
+            // Permitir: números
+            if (char.IsDigit(e.KeyChar))
+            {
+                return;
+            }
+
+            // Bloquear todo lo demás
+            e.Handled = true;
+        }
+
+        private void btnImagen_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Imágenes|*.jpg;*.png;*.jpeg;*.bmp";
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    pcbProducto.Image = new Bitmap(ofd.FileName);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al cargar la imagen: " + ex.Message);
+                }
+            }
         }
     }
 }

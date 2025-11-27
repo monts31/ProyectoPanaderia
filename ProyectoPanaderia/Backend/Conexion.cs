@@ -10,7 +10,7 @@ namespace ProyectoPanaderia.Backend
     public class Conexion
     {
 
-        private static string datos = "server=localhost; database=lostresbombones; user=root; pwd=31tv9";
+        private static string datos = "server=localhost; database=lostresbombones; user=root; pwd=Dagu12oa";
         public static MySqlConnection conexion()
         {
             return new MySqlConnection(datos);

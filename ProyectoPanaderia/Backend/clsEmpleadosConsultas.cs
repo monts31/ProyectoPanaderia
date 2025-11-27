@@ -8,10 +8,13 @@ using System.Threading.Tasks;
 
 namespace ProyectoPanaderia.Backend
 {
+    /// Clase para realizar consultas relacionadas con los empleados en la base de datos.
     public class clsEmpleadosConsultas
     {
+        /// Metodo de tipo DataTable para llenar la tabla de empleados, desde la base de datos.
         public DataTable llenarTabla()
         {
+            /// Conexion a la base de datos.
             MySqlConnection cn = Conexion.conexion();
             try
             {

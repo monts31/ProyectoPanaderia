@@ -37,5 +37,48 @@ namespace ProyectoPanaderia
             crudEmpleados.ShowDialog();
             this.Close();
         }
+
+        private void txtTelefono_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            // Permitir: borrar (Backspace)
+            if (char.IsControl(e.KeyChar))
+            {
+                return;
+            }
+
+            // Permitir: números
+            if (char.IsDigit(e.KeyChar))
+            {
+                return;
+            }
+
+            // Bloquear todo lo demás
+            e.Handled = true;
+        }
+
+        private void txtSueldo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir: borrar (Backspace)
+            if (char.IsControl(e.KeyChar))
+            {
+                return;
+            }
+
+            // Permitir: números
+            if (char.IsDigit(e.KeyChar))
+            {
+                return;
+            }
+
+            // Permitir un solo punto decimal
+            if (e.KeyChar == '.')
+            {
+                if (!txtSueldo.Text.Contains("."))
+                    return; // permitir agregar un punto
+            }
+
+            // Bloquear todo lo demás
+            e.Handled = true;
+        }
     }
 }
