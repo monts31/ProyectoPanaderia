@@ -129,7 +129,7 @@ namespace ProyectoPanaderia.Backend
             try
             {
                 cn.Open();
-                string query = "UPDATE productos SET nombre = @nombre, descripcion = @descripcion, precio = @precio, stock = @stock, foto = @foto " +
+                string query = "UPDATE productos SET nombre = @nombre, descripcion = @descripcion, precio = @precio, stock = @stock " +
                                 "WHERE id_producto = @id_producto";
 
                 MySqlCommand comando = new MySqlCommand(query, cn);

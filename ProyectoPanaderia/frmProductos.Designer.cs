@@ -34,7 +34,7 @@
             txtPrecio = new TextBox();
             txtDescripcion = new TextBox();
             txtNombre = new TextBox();
-            txtIdEmpleado = new TextBox();
+            txtIdProducto = new TextBox();
             label5 = new Label();
             label4 = new Label();
             label6 = new Label();
@@ -62,7 +62,7 @@
             grbProducto.Controls.Add(txtPrecio);
             grbProducto.Controls.Add(txtDescripcion);
             grbProducto.Controls.Add(txtNombre);
-            grbProducto.Controls.Add(txtIdEmpleado);
+            grbProducto.Controls.Add(txtIdProducto);
             grbProducto.Controls.Add(label5);
             grbProducto.Controls.Add(label4);
             grbProducto.Controls.Add(label6);
@@ -93,6 +93,7 @@
             txtPrecio.Name = "txtPrecio";
             txtPrecio.Size = new Size(190, 38);
             txtPrecio.TabIndex = 9;
+            txtPrecio.KeyPress += txtPrecio_KeyPress;
             // 
             // txtDescripcion
             // 
@@ -112,15 +113,15 @@
             txtNombre.Size = new Size(294, 38);
             txtNombre.TabIndex = 7;
             // 
-            // txtIdEmpleado
+            // txtIdProducto
             // 
-            txtIdEmpleado.Enabled = false;
-            txtIdEmpleado.Location = new Point(122, 41);
-            txtIdEmpleado.Multiline = true;
-            txtIdEmpleado.Name = "txtIdEmpleado";
-            txtIdEmpleado.Size = new Size(72, 33);
-            txtIdEmpleado.TabIndex = 6;
-            txtIdEmpleado.TextAlign = HorizontalAlignment.Center;
+            txtIdProducto.Enabled = false;
+            txtIdProducto.Location = new Point(122, 41);
+            txtIdProducto.Multiline = true;
+            txtIdProducto.Name = "txtIdProducto";
+            txtIdProducto.Size = new Size(72, 33);
+            txtIdProducto.TabIndex = 6;
+            txtIdProducto.TextAlign = HorizontalAlignment.Center;
             // 
             // label5
             // 
@@ -220,7 +221,7 @@
         private TextBox txtPrecio;
         private TextBox txtDescripcion;
         private TextBox txtNombre;
-        private TextBox txtIdEmpleado;
+        private TextBox txtIdProducto;
         private Label label5;
         private Label label4;
         private Label label6;

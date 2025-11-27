@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ProyectoPanaderia
 {
@@ -24,7 +26,19 @@ namespace ProyectoPanaderia
         {
             InitializeComponent();
             empleadoActual = empleados;
-            txtIdEmpleado.Text = empleadoActual.id_Empleado.ToString();
+            txtIdProducto.Text = empleadoActual.id_Empleado.ToString();
+        }
+
+        public frmProductos(clsEmpleados empleados, clsProductos producto)
+        {
+            InitializeComponent();
+            empleadoActual = empleados;
+
+            txtIdProducto.Text = producto.id_Producto.ToString();
+            txtNombre.Text = producto.nombre;
+            txtDescripcion.Text = producto.descripcion;
+            txtPrecio.Text = producto.precio.ToString();
+            txtStock.Text = producto.stock.ToString();
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -45,6 +59,7 @@ namespace ProyectoPanaderia
             else
             {
                 clsProductos producto = new clsProductos();
+                producto.id_Producto = int.Parse(txtIdProducto.Text);
                 producto.nombre = txtNombre.Text.Trim();
                 producto.descripcion = txtDescripcion.Text.Trim();
                 producto.precio = float.Parse(txtPrecio.Text.Trim());
@@ -53,14 +68,54 @@ namespace ProyectoPanaderia
                 try
                 {
                     clsProductosConsultas guardar = new clsProductosConsultas();
-                    guardar.insertarProducto(producto);
+                    guardar.modificarProducto(producto);
                     MessageBox.Show("Producto guardado exitosamente.");
+
+                    limpiar();
+                    frmCrudProductos crud = new frmCrudProductos(empleadoActual);
+                    this.Hide();
+                    crud.ShowDialog();
+                    this.Close();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error al guardar el producto: " + ex.Message);
                 }
             }
+        }
+
+        public void limpiar()
+        {
+            txtIdProducto.Clear();
+            txtNombre.Clear();
+            txtDescripcion.Clear();
+            txtPrecio.Clear();
+            txtStock.Clear();
+        }
+
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir: borrar (Backspace)
+            if (char.IsControl(e.KeyChar))
+            {
+                return;
+            }
+
+            // Permitir: números
+            if (char.IsDigit(e.KeyChar))
+            {
+                return;
+            }
+
+            // Permitir un solo punto decimal
+            if (e.KeyChar == '.')
+            {
+                if (!txtPrecio.Text.Contains("."))
+                    return; // permitir agregar un punto
+            }
+
+            // Bloquear todo lo demás
+            e.Handled = true;
         }
     }
 }

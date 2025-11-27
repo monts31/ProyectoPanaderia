@@ -41,6 +41,34 @@ namespace ProyectoPanaderia
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            if (dgvProductos.CurrentRow == null)
+            {
+                MessageBox.Show("Por favor, seleccione un producto a actualizar.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            clsProductos producto = new clsProductos();
+
+            try
+            {
+                producto.id_Producto = Convert.ToInt32(dgvProductos.CurrentRow.Cells[0].Value);
+                producto.nombre = dgvProductos.CurrentRow.Cells[1].Value.ToString();
+                producto.descripcion = dgvProductos.CurrentRow.Cells[2].Value.ToString();
+                producto.precio = float.Parse(dgvProductos.CurrentRow.Cells[3].Value.ToString());
+                producto.stock = Convert.ToInt32(dgvProductos.CurrentRow.Cells[4].Value);
+
+                // Abrir el formulario de edición
+                frmProductos modificar = new frmProductos(empleadoActual, producto);
+                this.Hide();
+                modificar.ShowDialog();
+                this.Close();
+
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos del producto: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
@@ -55,10 +83,11 @@ namespace ProyectoPanaderia
         public void cargarProductos()
         {
             clsProductosConsultas cons = new clsProductosConsultas();
-            dgvProductos.DataSource = cons.obtenerProductos();
+            dgvProductos.DataSource = cons.llenarTabla();
 
             dgvProductos.AllowUserToDeleteRows = true;
             dgvProductos.ReadOnly = false;
+            dgvProductos.AutoGenerateColumns = true;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
