@@ -1,14 +1,15 @@
-﻿using ProyectoPanaderia.POJO;
+﻿using ProyectoPanaderia.Backend;
+using ProyectoPanaderia.POJO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ProyectoPanaderia.Backend;
 
 namespace ProyectoPanaderia
 {
@@ -17,16 +18,13 @@ namespace ProyectoPanaderia
         clsEmpleados empleadoActual = new clsEmpleados();
 
         public MostradoresProductos controller = new MostradoresProductos();
-        public frmVentas()
-        {
-            InitializeComponent();
-
-        }
+        
 
         public frmVentas(clsEmpleados empleado)
         {
             InitializeComponent();
             empleadoActual = empleado;
+            label1.Text = "Empleado: " + empleadoActual.id_Empleado;
         }
 
         public void cargarProductos()
@@ -58,15 +56,17 @@ namespace ProyectoPanaderia
             int cantidad = producto.obtenerPrecio();
             decimal subtotal = cantidad * producto.precioProducto;
 
-            dataGridView1.Rows.Add(
+            int index = dataGridView1.Rows.Add(
                 producto.idProducto,
                 producto.nombreProducto,
                 producto.precioProducto,
                 cantidad,
                 subtotal
-            );
-        }
 
+            );
+            dataGridView1.Rows[index].Cells["Accion"].Value = Properties.recursos.eliminar;
+        }
+       
         public void frmVentas_Load(object sender, EventArgs e)
         {
             cargarProductos();
@@ -77,14 +77,23 @@ namespace ProyectoPanaderia
             clsOrdenes orden = new clsOrdenes();
             clsCompras compra = new clsCompras();
             orden.fecha = DateTime.Now;
+            orden.id_Empleado = empleadoActual.id_Empleado;
+            MessageBox.Show("Registrando orden..."+empleadoActual.id_Empleado);
             decimal total = 0;
-            int idOrden = compra.registrarOrden(orden);
+            int idOrden = compra.registrarOrden(orden, dataGridView1);
 
             foreach (DataGridViewRow fila in dataGridView1.Rows)
             {
-                clsDetallesOrden detallesOrden = new clsDetallesOrden();
-
                 total += Convert.ToDecimal(fila.Cells["Subtotal"].Value);
+            }
+            if(idOrden > 0)
+            {
+                MessageBox.Show("Orden registrada con éxito. ID de Orden: " + idOrden + "\nTotal: $" + total.ToString("F2"));
+                dataGridView1.Rows.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Error al registrar la orden.");
             }
         }
 
@@ -94,6 +103,20 @@ namespace ProyectoPanaderia
             this.Hide();
             menu.ShowDialog();
             this.Close();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridView1.Columns["Accion"].Index && e.RowIndex >= 0)
+            {
+                DialogResult result = MessageBox.Show("¿Remover de la compra?","Confirmar eliminación",
+                MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    dataGridView1.Rows.RemoveAt(e.RowIndex);
+                }
+            }
         }
     }
 }

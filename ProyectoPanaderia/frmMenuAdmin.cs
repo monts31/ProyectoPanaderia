@@ -14,11 +14,7 @@ namespace ProyectoPanaderia
     public partial class frmMenuAdmin : Form
     {
         
-        public frmMenuAdmin()
-        {
-            InitializeComponent();
-
-        }
+        
         clsEmpleados empleadoActual = new clsEmpleados();
         public frmMenuAdmin(clsEmpleados empleado)
         {
