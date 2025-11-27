@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProyectoPanaderia.Backend;
+using ProyectoPanaderia.POJO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,18 +17,20 @@ namespace ProyectoPanaderia
         public int idProducto { get; set; }
         public string nombreProducto { get; set; }
         public decimal precioProducto { get; set; }
+        public int Stock { get; set; }
 
         public event EventHandler Agregar;
         public MostradoresProductos()
         {
             InitializeComponent();
         }
-        public void CargarDatos(int id, string nombre, decimal precio, byte[] foto)
+        public void CargarDatos(int id, string nombre, decimal precio, int stock, byte[] foto)
         {
             idProducto = id;
             nombreProducto = nombre;
             precioProducto = precio;
             lblNombre.Text = nombre;
+            Stock = stock;
 
             if (foto != null)
             {
@@ -53,6 +57,12 @@ namespace ProyectoPanaderia
                 MessageBox.Show("Ingrese una cantidad valida");
                 return;
             }
+            if(int.Parse(textBox1.Text) > Stock)
+            {
+                MessageBox.Show("No hay suficiente stock disponible");
+                return;
+            }
+
             if (Agregar != null)
             {
                  Agregar(this, EventArgs.Empty);
@@ -67,5 +77,7 @@ namespace ProyectoPanaderia
             return c;
 
         }
+
+        
     }
 }

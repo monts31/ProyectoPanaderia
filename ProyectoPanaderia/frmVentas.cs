@@ -39,7 +39,7 @@ namespace ProyectoPanaderia
                 productoControl.CargarDatos(
                     Convert.ToInt32(fila["id_Producto"]),
                     fila["nombre"].ToString(),
-                    Convert.ToDecimal(fila["precio"]),
+                    Convert.ToDecimal(fila["precio"]), stock: Convert.ToInt32(fila["stock"]),
                     fila["foto"] as byte[]
                 );
                 productoControl.Agregar += productoControl_Agregar;
@@ -78,13 +78,13 @@ namespace ProyectoPanaderia
             clsCompras compra = new clsCompras();
             orden.fecha = DateTime.Now;
             orden.id_Empleado = empleadoActual.id_Empleado;
-            MessageBox.Show("Registrando orden..."+empleadoActual.id_Empleado);
+            
             decimal total = 0;
             int idOrden = compra.registrarOrden(orden, dataGridView1);
 
             foreach (DataGridViewRow fila in dataGridView1.Rows)
             {
-                total += Convert.ToDecimal(fila.Cells["Subtotal"].Value);
+                total += Convert.ToDecimal(fila.Cells["total"].Value);
             }
             if(idOrden > 0)
             {

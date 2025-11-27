@@ -24,7 +24,7 @@ namespace ProyectoPanaderia.Backend
             {
                 cn.Open();
 
-                string query = "SELECT id_producto, nombre, precio, foto FROM productos";
+                string query = "SELECT id_producto, nombre, precio,stock, foto FROM productos";
 
                 MySqlCommand comando = new MySqlCommand(query, cn);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(comando);
