@@ -70,7 +70,7 @@ namespace ProyectoPanaderia.Backend
             {
                 cn.Open();
 
-                // 1) asignar variable de sesión del servidor (forma recomendada)
+                // asignar variable de sesión del servidor (forma recomendada)
                 string userSql = "SELECT @usuarioActual := @usuario;";
                 using (var cmdUser = new MySqlCommand(userSql, cn))
                 {
@@ -88,13 +88,13 @@ namespace ProyectoPanaderia.Backend
                     }
                 }
 
-                // 2) comprobar que la variable quedó establecida (debug)
+                // comprobar que la variable quedó establecida (debug)
                 try
                 {
                     using (var cmdCheck = new MySqlCommand("SELECT @usuarioActual;", cn))
                     {
                         object val = cmdCheck.ExecuteScalar();
-                        MessageBox.Show("Valor @usuarioActual en servidor: " + (val ?? "NULL"));
+                        //MessageBox.Show("Valor @usuarioActual en servidor: " + (val ?? "NULL"));
                     }
                 }
                 catch (Exception ex)
@@ -103,9 +103,9 @@ namespace ProyectoPanaderia.Backend
                     // continuar o devolver false según prefieras
                 }
 
-                // 3) insertar producto
-                string query = "INSERT INTO productos (nombre, descripcion, precio, stock, estado) " +
-                               "VALUES (@nombre, @descripcion, @precio, @stock, @estado)";
+                // insertar producto
+                string query = "INSERT INTO productos (nombre, descripcion, precio, stock, estado, foto) " +
+                               "VALUES (@nombre, @descripcion, @precio, @stock, @estado, @foto)";
 
                 using (var cmd = new MySqlCommand(query, cn))
                 {
@@ -114,6 +114,7 @@ namespace ProyectoPanaderia.Backend
                     cmd.Parameters.AddWithValue("@precio", producto.precio);
                     cmd.Parameters.AddWithValue("@stock", producto.stock);
                     cmd.Parameters.AddWithValue("@estado", "Activo");
+                    cmd.Parameters.Add("@foto", MySqlDbType.LongBlob).Value = (producto.foto != null ? producto.foto : DBNull.Value);
 
                     int filasAfectadas = cmd.ExecuteNonQuery();
                     return filasAfectadas > 0;

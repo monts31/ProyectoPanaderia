@@ -69,7 +69,16 @@ namespace ProyectoPanaderia
                 producto.stock = int.Parse(txtStock.Text.Trim());
                 producto.estado = txtEstado.Text.Trim();
 
-                if(txtIdProducto.Text == "N")
+                if (pcbProducto.Image != null)
+                {
+                    producto.foto = clsConvertirImagen.ImagenABytes(pcbProducto.Image);
+                }
+                else
+                {
+                    producto.foto = null;
+                }
+
+                if (txtIdProducto.Text == "N")
                 {
                     MessageBox.Show("Entre aqui");
                     clsProductosConsultas insertar = new clsProductosConsultas();

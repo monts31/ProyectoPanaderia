@@ -13,6 +13,27 @@ namespace ProyectoPanaderia.Backend
 {
     public class clsConvertirImagen
     {
+        public static byte[] ImagenABytes(Image imagen)
+        {
+            if (imagen == null) return null;
+
+            using (MemoryStream ms = new MemoryStream())
+            {
+                imagen.Save(ms, ImageFormat.Jpeg);
+                return ms.ToArray();
+            }
+        }
+
+        public static Image BytesAImagen(byte[] bytes)
+        {
+            if (bytes == null) return null;
+
+            using (MemoryStream ms = new MemoryStream(bytes))
+            {
+                return Image.FromStream(ms);
+            }
+        }
+
         //private byte[] ConvertirImg()
         //{
         //    ImageConverter img = new ImageConverter();
