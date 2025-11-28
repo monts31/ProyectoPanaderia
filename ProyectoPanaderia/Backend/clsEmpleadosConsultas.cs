@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using ProyectoPanaderia.POJO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -31,6 +32,41 @@ namespace ProyectoPanaderia.Backend
             catch (Exception ex)
             {
                 throw new Exception("Error al llenar la tabla de productos: " + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        public bool insertarEmpleado(clsEmpleados empleado)
+        {
+            MySqlConnection cn = Conexion.conexion();
+
+            try
+            {
+                cn.Open();
+                string sql = "call pInsertarEmpleado (@nombre, @usuario, @contraseña, @telefono, @correo, " +
+                    "@rol, @horas, @sueldo, @estado);";
+
+                MySqlCommand cmd = new MySqlCommand(sql, cn);
+
+                cmd.Parameters.AddWithValue("@nombre", empleado.nombre);
+                cmd.Parameters.AddWithValue("@usuario", empleado.usuario);
+                cmd.Parameters.AddWithValue("@contraseña", empleado.contraseña);
+                cmd.Parameters.AddWithValue("@telefono", empleado.telefono);
+                cmd.Parameters.AddWithValue("@correo", empleado.correo);
+                cmd.Parameters.AddWithValue("@rol", empleado.rol);
+                cmd.Parameters.AddWithValue("@horas", empleado.horas);
+                cmd.Parameters.AddWithValue("@sueldo", empleado.sueldo);
+                cmd.Parameters.AddWithValue("@estado", empleado.estado);
+
+                int filasAfectadas = cmd.ExecuteNonQuery();
+                return filasAfectadas > 0;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception("Error al insertar el empleado: " + ex.Message);
             }
             finally
             {

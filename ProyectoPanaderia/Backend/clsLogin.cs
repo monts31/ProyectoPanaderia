@@ -32,7 +32,7 @@ namespace ProyectoPanaderia.Backend
                         empleado.usuario = reader["usuario"].ToString();
                         empleado.rol = reader["rol"].ToString();
                         empleado.nombre = reader["nombre"].ToString();
-                        empleado.id_Empleado = Convert.ToInt32(reader["id_Empleado"]);
+                        empleado.id_empleado = Convert.ToInt32(reader["id_Empleado"]);
                         return true;
                     }
                     else 

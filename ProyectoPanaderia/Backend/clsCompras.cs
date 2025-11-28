@@ -10,7 +10,7 @@ using System.Transactions;
 
 namespace ProyectoPanaderia.Backend
 {
-    internal class clsCompras
+    public class clsCompras
     {
         
         public clsCompras() 
@@ -31,9 +31,9 @@ namespace ProyectoPanaderia.Backend
             try
             {
                 //aqui se inserta la orden
-                string query = "insert into ordenes (id_Empleado, fecha) values (@id_Empleado, @fecha)";
+                string query = "insert into ordenes (id_empleado, fecha) values (@id_empleado, @fecha)";
                 MySqlCommand comando = new MySqlCommand(query, cn, transaction);
-                comando.Parameters.AddWithValue("@id_Empleado", orden.id_Empleado);
+                comando.Parameters.AddWithValue("@id_empleado", orden.id_Empleado);
                 comando.Parameters.AddWithValue("@fecha", orden.fecha);
                 comando.ExecuteNonQuery();
                 idOrden = (int)comando.LastInsertedId;

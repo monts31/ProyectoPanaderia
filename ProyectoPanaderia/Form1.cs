@@ -19,6 +19,7 @@ namespace ProyectoPanaderia
             clsEmpleados empleado = new clsEmpleados();
             empleado.usuario = txtUsuario.Text.Trim();
             empleado.contraseña = txtContraseña.Text.Trim();
+
             Backend.clsLogin login = new Backend.clsLogin();
             try
             {
@@ -34,7 +35,7 @@ namespace ProyectoPanaderia
                     }
                     else if (empleado.rol == "Empleado")
                     {
-                        frmMenuEmpleados empleadosform = new frmMenuEmpleados();
+                        frmMenuEmpleados empleadosform = new frmMenuEmpleados(empleado);
                         this.Hide();
                         empleadosform.ShowDialog();
                         this.Close();

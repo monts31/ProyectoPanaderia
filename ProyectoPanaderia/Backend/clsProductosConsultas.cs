@@ -63,30 +63,66 @@ namespace ProyectoPanaderia.Backend
                 cn.Close(); 
             }
         }
-
-        public bool insertarProducto(clsProductos producto)
+        public bool insertarProducto(clsProductos producto, string usuario)
         {
             MySqlConnection cn = Conexion.conexion();
-
             try
             {
                 cn.Open();
-                string query = "INSERT INTO productos (nombre, descripcion, precio, stock, foto) VALUES (@nombre, @descripcion, @precio, @stock, @foto)";
 
-                MySqlCommand comando = new MySqlCommand(query, cn);
+                // 1) asignar variable de sesión del servidor (forma recomendada)
+                string userSql = "SELECT @usuarioActual := @usuario;";
+                using (var cmdUser = new MySqlCommand(userSql, cn))
+                {
+                    cmdUser.Parameters.AddWithValue("@usuario", usuario);
 
-                comando.Parameters.AddWithValue("@nombre", producto.nombre);
-                comando.Parameters.AddWithValue("@descripcion", producto.descripcion);
-                comando.Parameters.AddWithValue("@precio", producto.precio);
-                comando.Parameters.AddWithValue("@stock", producto.stock);
-                comando.Parameters.AddWithValue("@foto", producto.foto);
+                    try
+                    {
+                        cmdUser.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        // Mostrar excepción real para depurar
+                        MessageBox.Show("Error al establecer variable de usuario:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                }
 
-                int filasAfectadas = comando.ExecuteNonQuery();
-                return filasAfectadas > 0;
+                // 2) comprobar que la variable quedó establecida (debug)
+                try
+                {
+                    using (var cmdCheck = new MySqlCommand("SELECT @usuarioActual;", cn))
+                    {
+                        object val = cmdCheck.ExecuteScalar();
+                        MessageBox.Show("Valor @usuarioActual en servidor: " + (val ?? "NULL"));
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al leer @usuarioActual: " + ex.Message);
+                    // continuar o devolver false según prefieras
+                }
+
+                // 3) insertar producto
+                string query = "INSERT INTO productos (nombre, descripcion, precio, stock, estado) " +
+                               "VALUES (@nombre, @descripcion, @precio, @stock, @estado)";
+
+                using (var cmd = new MySqlCommand(query, cn))
+                {
+                    cmd.Parameters.AddWithValue("@nombre", producto.nombre);
+                    cmd.Parameters.AddWithValue("@descripcion", producto.descripcion);
+                    cmd.Parameters.AddWithValue("@precio", producto.precio);
+                    cmd.Parameters.AddWithValue("@stock", producto.stock);
+                    cmd.Parameters.AddWithValue("@estado", "Activo");
+
+                    int filasAfectadas = cmd.ExecuteNonQuery();
+                    return filasAfectadas > 0;
+                }
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw new Exception("Error al insertar el producto: " + ex.Message);
+                MessageBox.Show("Error en insertarProducto: " + e.Message);
+                return false;
             }
             finally
             {
@@ -94,62 +130,38 @@ namespace ProyectoPanaderia.Backend
             }
         }
 
-        public bool eliminarProducto(int idProducto)
-        {
-            MySqlConnection cn = Conexion.conexion();
+        //public bool eliminarProducto(int idProducto)
+        //{
+        //    MySqlConnection cn = Conexion.conexion();
+        //    try
+        //    {
 
-            try
-            {
-                cn.Open();
-                string query = "DELETE FROM productos WHERE id_producto = @idProducto";
+        //    }
+        //    catch (Exception e)
+        //    {
 
-                MySqlCommand comando = new MySqlCommand(query, cn);
+        //    }
+        //    finally
+        //    {
+        //        cn.Close();
+        //    }
+        //}
 
-                comando.Parameters.AddWithValue("@idProducto", idProducto);
+        //public bool modificarProducto(clsProductos producto)
+        //{
+        //    MySqlConnection cn = Conexion.conexion();
+        //    try
+        //    {
 
-                int filasAfectadas = comando.ExecuteNonQuery();
-                return filasAfectadas > 0;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al eliminar el producto: " + ex.Message);
-            }
-            finally
-            {
-                cn.Close();
-            }
-        }
+        //    }
+        //    catch (Exception e)
+        //    {
 
-        public bool modificarProducto(clsProductos producto)
-        {
-            MySqlConnection cn = Conexion.conexion();
-
-            try
-            {
-                cn.Open();
-                string query = "UPDATE productos SET nombre = @nombre, descripcion = @descripcion, precio = @precio, stock = @stock " +
-                                "WHERE id_producto = @id_producto";
-
-                MySqlCommand comando = new MySqlCommand(query, cn);
-
-                comando.Parameters.AddWithValue("@id_producto", producto.id_Producto);
-                comando.Parameters.AddWithValue("@nombre", producto.nombre);
-                comando.Parameters.AddWithValue("@descripcion", producto.descripcion);
-                comando.Parameters.AddWithValue("@precio", producto.precio);
-                comando.Parameters.AddWithValue("@stock", producto.stock);
-                //comando.Parameters.AddWithValue("@foto", new byte[] { });
-
-                int filasAfectadas = comando.ExecuteNonQuery();
-                return filasAfectadas > 0;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al modificar el producto: " + ex.Message);
-            }
-            finally
-            {
-                cn.Close();
-            }
-        }
+        //    }
+        //    finally
+        //    {
+        //        cn.Close();
+        //    }
+        //}
     }
 }

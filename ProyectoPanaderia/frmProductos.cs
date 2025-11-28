@@ -28,7 +28,7 @@ namespace ProyectoPanaderia
         {
             InitializeComponent();
             empleadoActual = empleados;
-            txtIdProducto.Text = empleadoActual.id_Empleado.ToString();
+            txtIdProducto.Text = "N";
         }
 
         public frmProductos(clsEmpleados empleados, clsProductos producto)
@@ -40,6 +40,7 @@ namespace ProyectoPanaderia
             txtNombre.Text = producto.nombre;
             txtDescripcion.Text = producto.descripcion;
             txtPrecio.Text = producto.precio.ToString();
+            txtEstado.Text = "Activo";
             txtStock.Text = producto.stock.ToString();
         }
 
@@ -61,27 +62,55 @@ namespace ProyectoPanaderia
             else
             {
                 clsProductos producto = new clsProductos();
-                producto.id_Producto = int.Parse(txtIdProducto.Text);
+
                 producto.nombre = txtNombre.Text.Trim();
                 producto.descripcion = txtDescripcion.Text.Trim();
                 producto.precio = float.Parse(txtPrecio.Text.Trim());
                 producto.stock = int.Parse(txtStock.Text.Trim());
+                producto.estado = txtEstado.Text.Trim();
 
-                try
+                if(txtIdProducto.Text == "N")
                 {
-                    clsProductosConsultas guardar = new clsProductosConsultas();
-                    guardar.modificarProducto(producto);
-                    MessageBox.Show("Producto guardado exitosamente.");
+                    MessageBox.Show("Entre aqui");
+                    clsProductosConsultas insertar = new clsProductosConsultas();
 
-                    limpiar();
-                    frmCrudProductos crud = new frmCrudProductos(empleadoActual);
-                    this.Hide();
-                    crud.ShowDialog();
-                    this.Close();
+                    try
+                    {
+                        insertar.insertarProducto(producto, empleadoActual.usuario);
+                        MessageBox.Show("Producto guardado exitosamente.");
+
+                        limpiar();
+                        frmCrudProductos crud = new frmCrudProductos(empleadoActual);
+                        this.Hide();
+                        crud.ShowDialog();
+                        this.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al guardar el producto: " + ex.Message);
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Error al guardar el producto: " + ex.Message);
+                    MessageBox.Show("Entre a modificar");
+
+                    clsProductosConsultas guardar = new clsProductosConsultas();
+                    //producto.id_Producto = int.Parse(txtIdProducto.Text);
+                    try
+                    {
+                        //guardar.modificarProducto(producto);
+                        MessageBox.Show("Producto modificado exitosamente.");
+
+                        limpiar();
+                        frmCrudProductos crud = new frmCrudProductos(empleadoActual);
+                        this.Hide();
+                        crud.ShowDialog();
+                        this.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al guardar el producto: " + ex.Message);
+                    }
                 }
             }
         }

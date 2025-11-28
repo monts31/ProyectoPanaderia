@@ -33,9 +33,9 @@ namespace ProyectoPanaderia
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-            frmProductos producto = new frmProductos(empleadoActual);
+            frmProductos insertar = new frmProductos(empleadoActual);
             this.Hide();
-            producto.ShowDialog();
+            insertar.ShowDialog();
             this.Close();
         }
 
@@ -57,6 +57,7 @@ namespace ProyectoPanaderia
                 producto.descripcion = dgvProductos.CurrentRow.Cells[2].Value.ToString();
                 producto.precio = float.Parse(dgvProductos.CurrentRow.Cells[3].Value.ToString());
                 producto.stock = Convert.ToInt32(dgvProductos.CurrentRow.Cells[4].Value);
+                producto.estado = dgvProductos.CurrentRow.Cells[5].Value.ToString();
 
                 // Abrir el formulario de edición
                 frmProductos modificar = new frmProductos(empleadoActual, producto);
@@ -101,7 +102,7 @@ namespace ProyectoPanaderia
             {
                 try
                 {
-                    eliminar.eliminarProducto(idProducto);
+                    //eliminar.eliminarProducto(idProducto);
                     MessageBox.Show("Producto eliminado correctamente");
                 }
                 catch

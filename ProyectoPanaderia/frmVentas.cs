@@ -24,7 +24,7 @@ namespace ProyectoPanaderia
         {
             InitializeComponent();
             empleadoActual = empleado;
-            label1.Text = "Empleado: " + empleadoActual.id_Empleado;
+            label1.Text = "Empleado: " + empleadoActual.id_empleado;
         }
 
         public void cargarProductos()
@@ -77,7 +77,7 @@ namespace ProyectoPanaderia
             clsOrdenes orden = new clsOrdenes();
             clsCompras compra = new clsCompras();
             orden.fecha = DateTime.Now;
-            orden.id_Empleado = empleadoActual.id_Empleado;
+            orden.id_Empleado = empleadoActual.id_empleado;
             
             decimal total = 0;
             int idOrden = compra.registrarOrden(orden, dataGridView1);

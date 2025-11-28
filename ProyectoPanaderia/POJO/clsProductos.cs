@@ -13,6 +13,7 @@ namespace ProyectoPanaderia.POJO
         public string descripcion { get; set; }
         public float precio { get; set; }
         public int stock { get; set; }
+        public string estado { get; set; }
         public byte[] foto { get; set; }
 
     }

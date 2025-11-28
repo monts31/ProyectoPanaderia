@@ -30,6 +30,8 @@
         {
             btnGuardar = new Button();
             grbProducto = new GroupBox();
+            btnImagen = new Button();
+            pcbProducto = new PictureBox();
             txtStock = new TextBox();
             txtPrecio = new TextBox();
             txtDescripcion = new TextBox();
@@ -43,8 +45,8 @@
             label1 = new Label();
             lblEmpleados = new Label();
             btnRegresar = new Button();
-            pcbProducto = new PictureBox();
-            btnImagen = new Button();
+            label7 = new Label();
+            txtEstado = new TextBox();
             grbProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcbProducto).BeginInit();
             SuspendLayout();
@@ -61,6 +63,8 @@
             // 
             // grbProducto
             // 
+            grbProducto.Controls.Add(txtEstado);
+            grbProducto.Controls.Add(label7);
             grbProducto.Controls.Add(btnImagen);
             grbProducto.Controls.Add(pcbProducto);
             grbProducto.Controls.Add(txtStock);
@@ -80,6 +84,24 @@
             grbProducto.TabIndex = 9;
             grbProducto.TabStop = false;
             grbProducto.Text = "Producto";
+            // 
+            // btnImagen
+            // 
+            btnImagen.Location = new Point(684, 249);
+            btnImagen.Name = "btnImagen";
+            btnImagen.Size = new Size(135, 29);
+            btnImagen.TabIndex = 12;
+            btnImagen.Text = "Cargar imagen ";
+            btnImagen.UseVisualStyleBackColor = true;
+            btnImagen.Click += btnImagen_Click;
+            // 
+            // pcbProducto
+            // 
+            pcbProducto.Location = new Point(519, 248);
+            pcbProducto.Name = "pcbProducto";
+            pcbProducto.Size = new Size(157, 158);
+            pcbProducto.TabIndex = 11;
+            pcbProducto.TabStop = false;
             // 
             // txtStock
             // 
@@ -146,7 +168,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(468, 215);
+            label6.Location = new Point(471, 252);
             label6.Name = "label6";
             label6.Size = new Size(42, 20);
             label6.TabIndex = 5;
@@ -198,23 +220,24 @@
             btnRegresar.UseVisualStyleBackColor = true;
             btnRegresar.Click += btnRegresar_Click;
             // 
-            // pcbProducto
+            // label7
             // 
-            pcbProducto.Location = new Point(516, 211);
-            pcbProducto.Name = "pcbProducto";
-            pcbProducto.Size = new Size(157, 158);
-            pcbProducto.TabIndex = 11;
-            pcbProducto.TabStop = false;
+            label7.AutoSize = true;
+            label7.Location = new Point(468, 170);
+            label7.Name = "label7";
+            label7.Size = new Size(57, 20);
+            label7.TabIndex = 13;
+            label7.Text = "Estado:";
             // 
-            // btnImagen
+            // txtEstado
             // 
-            btnImagen.Location = new Point(681, 212);
-            btnImagen.Name = "btnImagen";
-            btnImagen.Size = new Size(135, 29);
-            btnImagen.TabIndex = 12;
-            btnImagen.Text = "Cargar imagen ";
-            btnImagen.UseVisualStyleBackColor = true;
-            btnImagen.Click += btnImagen_Click;
+            txtEstado.Enabled = false;
+            txtEstado.Location = new Point(524, 167);
+            txtEstado.Multiline = true;
+            txtEstado.Name = "txtEstado";
+            txtEstado.Size = new Size(190, 38);
+            txtEstado.TabIndex = 14;
+            txtEstado.Text = "Activo";
             // 
             // frmProductos
             // 
@@ -253,5 +276,7 @@
         private Button btnRegresar;
         private Button btnImagen;
         private PictureBox pcbProducto;
+        private TextBox txtEstado;
+        private Label label7;
     }
 }
