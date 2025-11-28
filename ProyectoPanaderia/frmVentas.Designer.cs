@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            btnCancelar = new Button();
-            btnConfirmar = new Button();
-            btnRegresar = new Button();
-            label1 = new Label();
             IdProducto = new DataGridViewTextBoxColumn();
             nombre = new DataGridViewTextBoxColumn();
             precio = new DataGridViewTextBoxColumn();
             cantidad = new DataGridViewTextBoxColumn();
             total = new DataGridViewTextBoxColumn();
             Accion = new DataGridViewImageColumn();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            btnCancelar = new Button();
+            btnConfirmar = new Button();
+            btnRegresar = new Button();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -54,53 +54,6 @@
             dataGridView1.Size = new Size(505, 127);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellClick += dataGridView1_CellClick;
-            // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.Location = new Point(41, 42);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(231, 340);
-            flowLayoutPanel1.TabIndex = 1;
-            // 
-            // btnCancelar
-            // 
-            btnCancelar.Location = new Point(486, 232);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(125, 41);
-            btnCancelar.TabIndex = 2;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // btnConfirmar
-            // 
-            btnConfirmar.Location = new Point(668, 232);
-            btnConfirmar.Name = "btnConfirmar";
-            btnConfirmar.Size = new Size(107, 41);
-            btnConfirmar.TabIndex = 3;
-            btnConfirmar.Text = "Confirmar venta";
-            btnConfirmar.UseVisualStyleBackColor = true;
-            btnConfirmar.Click += btnConfirmar_Click;
-            // 
-            // btnRegresar
-            // 
-            btnRegresar.Location = new Point(6, 2);
-            btnRegresar.Margin = new Padding(3, 2, 3, 2);
-            btnRegresar.Name = "btnRegresar";
-            btnRegresar.Size = new Size(40, 31);
-            btnRegresar.TabIndex = 9;
-            btnRegresar.Text = "<---";
-            btnRegresar.UseVisualStyleBackColor = true;
-            btnRegresar.Click += btnRegresar_Click;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(308, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(38, 15);
-            label1.TabIndex = 10;
-            label1.Text = "label1";
             // 
             // IdProducto
             // 
@@ -146,6 +99,54 @@
             Accion.Name = "Accion";
             Accion.Resizable = DataGridViewTriState.False;
             Accion.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.Location = new Point(41, 42);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(231, 340);
+            flowLayoutPanel1.TabIndex = 1;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.Location = new Point(486, 232);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(125, 41);
+            btnCancelar.TabIndex = 2;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
+            // btnConfirmar
+            // 
+            btnConfirmar.Location = new Point(668, 232);
+            btnConfirmar.Name = "btnConfirmar";
+            btnConfirmar.Size = new Size(107, 41);
+            btnConfirmar.TabIndex = 3;
+            btnConfirmar.Text = "Confirmar venta";
+            btnConfirmar.UseVisualStyleBackColor = true;
+            btnConfirmar.Click += btnConfirmar_Click;
+            // 
+            // btnRegresar
+            // 
+            btnRegresar.Location = new Point(6, 2);
+            btnRegresar.Margin = new Padding(3, 2, 3, 2);
+            btnRegresar.Name = "btnRegresar";
+            btnRegresar.Size = new Size(40, 31);
+            btnRegresar.TabIndex = 9;
+            btnRegresar.Text = "<---";
+            btnRegresar.UseVisualStyleBackColor = true;
+            btnRegresar.Click += btnRegresar_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(308, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(38, 15);
+            label1.TabIndex = 10;
+            label1.Text = "label1";
             // 
             // frmVentas
             // 

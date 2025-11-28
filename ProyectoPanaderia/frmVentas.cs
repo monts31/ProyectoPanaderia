@@ -18,7 +18,7 @@ namespace ProyectoPanaderia
         clsEmpleados empleadoActual = new clsEmpleados();
 
         public MostradoresProductos controller = new MostradoresProductos();
-        
+
 
         public frmVentas(clsEmpleados empleado)
         {
@@ -66,7 +66,7 @@ namespace ProyectoPanaderia
             );
             dataGridView1.Rows[index].Cells["Accion"].Value = Properties.recursos.eliminar;
         }
-       
+
         public void frmVentas_Load(object sender, EventArgs e)
         {
             cargarProductos();
@@ -74,11 +74,21 @@ namespace ProyectoPanaderia
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
+            int prod = 0;
+            foreach (DataGridViewRow fila in dataGridView1.Rows)
+            {
+                if (!fila.IsNewRow) {  prod++; }
+            }
+            if (prod == 0)
+            {
+                MessageBox.Show("No hay productos en la orden.");
+                return;
+            }
             clsOrdenes orden = new clsOrdenes();
             clsCompras compra = new clsCompras();
             orden.fecha = DateTime.Now;
             orden.id_Empleado = empleadoActual.id_empleado;
-            
+
             decimal total = 0;
             int idOrden = compra.registrarOrden(orden, dataGridView1);
 
@@ -86,7 +96,7 @@ namespace ProyectoPanaderia
             {
                 total += Convert.ToDecimal(fila.Cells["total"].Value);
             }
-            if(idOrden > 0)
+            if (idOrden > 0)
             {
                 MessageBox.Show("Orden registrada con éxito. ID de Orden: " + idOrden + "\nTotal: $" + total.ToString("F2"));
                 dataGridView1.Rows.Clear();
@@ -109,13 +119,32 @@ namespace ProyectoPanaderia
         {
             if (e.ColumnIndex == dataGridView1.Columns["Accion"].Index && e.RowIndex >= 0)
             {
-                DialogResult result = MessageBox.Show("¿Remover de la compra?","Confirmar eliminación",
-                MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("¿Remover de la compra?", "Confirmar eliminación",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
                     dataGridView1.Rows.RemoveAt(e.RowIndex);
                 }
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            int prod = 0;
+            foreach (DataGridViewRow fila in dataGridView1.Rows)
+            {
+                if (!fila.IsNewRow) { prod++; }
+            }
+            if (prod == 0)
+            {
+                MessageBox.Show("No hay productos en la orden.");
+                return;
+            }
+            DialogResult result = MessageBox.Show("Deseas cancelar la orden?", "Confirmar cancelación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                dataGridView1.Rows.Clear();
             }
         }
     }

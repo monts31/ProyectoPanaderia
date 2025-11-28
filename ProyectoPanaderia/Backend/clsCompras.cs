@@ -40,7 +40,7 @@ namespace ProyectoPanaderia.Backend
 
 
                 /// Aqui se van a insertar los detalles de la orden
-                string queryDetalle = "insert into dordenes (id_Orden, id_Producto, cantidad, precio) values (@id_Orden, @id_Producto, @cantidad, @precio);";
+                string queryDetalle = "insert into detalles (id_Orden, id_Producto, cantidad, precio) values (@id_Orden, @id_Producto, @cantidad, @precio);";
                 foreach (DataGridViewRow fila in dgv.Rows)
                 {
                     if (fila.IsNewRow || fila.Cells["IdProducto"].Value == null)
@@ -66,7 +66,7 @@ namespace ProyectoPanaderia.Backend
             catch (Exception ex)
             {
                 transaction.Rollback();
-                throw new Exception("Error al registrar la orden: " + ex.Message);
+                throw new Exception("Error al registrar la orden." + ex);
                 
             }
             finally

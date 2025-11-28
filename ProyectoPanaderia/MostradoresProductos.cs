@@ -47,25 +47,37 @@ namespace ProyectoPanaderia
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if(!textBox1.Text.All(char.IsDigit))
+            if (string.IsNullOrWhiteSpace(textBox1.Text) || !textBox1.Text.All(char.IsDigit))
             {
-                MessageBox.Show("Solo se aceptan números");
+                MessageBox.Show("Solo se aceptan números válidos");
+                textBox1.Clear();
                 return;
             }
-            if (textBox1.Text == "" || textBox1.Text=="0")
+            if (!int.TryParse(textBox1.Text, out int cantidad))
             {
-                MessageBox.Show("Ingrese una cantidad valida");
+                MessageBox.Show("Ingrese una cantidad válida");
+                textBox1.Clear();
                 return;
             }
-            if(int.Parse(textBox1.Text) > Stock)
+
+            if (cantidad <= 0)
+            {
+                MessageBox.Show("La cantidad debe ser mayor a cero");
+                textBox1.Clear();
+                return;
+            }
+
+            if (cantidad > Stock)
             {
                 MessageBox.Show("No hay suficiente stock disponible");
+                textBox1.Clear();
                 return;
             }
 
             if (Agregar != null)
             {
                  Agregar(this, EventArgs.Empty);
+                textBox1.Clear();
             }
 
         }

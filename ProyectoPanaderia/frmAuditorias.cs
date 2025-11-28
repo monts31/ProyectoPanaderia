@@ -19,10 +19,10 @@ namespace ProyectoPanaderia
             InitializeComponent();
         }
 
-        public frmAuditorias (clsEmpleados empleados)
+        public frmAuditorias(clsEmpleados empleados)
         {
             InitializeComponent();
-           empleadoActual = empleados;
+            empleadoActual = empleados;
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -30,6 +30,27 @@ namespace ProyectoPanaderia
             frmMenuAdmin menu = new frmMenuAdmin(empleadoActual);
             this.Hide();
             menu.ShowDialog();
+            this.Close();
+        }
+
+        public void llenarAuditorias()
+        {
+            Backend.clsAuditorias auditorias = new Backend.clsAuditorias();
+            DataTable tablaAuditorias = auditorias.obtenerAuditoria();
+            dataGridView1.DataSource = tablaAuditorias;
+
+        }
+
+        private void frmAuditorias_Load(object sender, EventArgs e)
+        {
+            llenarAuditorias();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmReporteFecha reporte = new frmReporteFecha();
+            this.Hide();
+            reporte.ShowDialog();
             this.Close();
         }
     }
