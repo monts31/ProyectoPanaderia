@@ -1,6 +1,7 @@
 ﻿using ClosedXML.Excel;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
+using ProyectoPanaderia.POJO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -18,10 +19,17 @@ namespace ProyectoPanaderia
 {
     public partial class frmReporteFecha : Form
     {
+        clsEmpleados empleadoActual = new clsEmpleados();
         public frmReporteFecha()
         {
             InitializeComponent();
-            
+
+        }
+
+        public frmReporteFecha(clsEmpleados empleados)
+        {
+            InitializeComponent();
+            empleadoActual = empleados;
         }
 
         private void btnGenerar_Click(object sender, EventArgs e)
@@ -31,7 +39,7 @@ namespace ProyectoPanaderia
                 MessageBox.Show("La fecha de inicio no puede ser mayor que la fecha de fin.", "Error de fechas", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            
+
             if (dtpFin.Value.Date > DateTime.Now.Date)
             {
                 MessageBox.Show("La fecha de fin no puede ser mayor a la fecha actual.", "Error de fechas", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -84,7 +92,7 @@ namespace ProyectoPanaderia
                         // al pasar un DataTable es simplemente:
                         hoja.Table("Table1").Theme = XLTableTheme.TableStyleMedium9;
                         // ClosedXML nombra la primera tabla "Table1" si no se especifica.
-                 
+
                         libro.SaveAs(save.FileName);
                     }
 
@@ -97,5 +105,12 @@ namespace ProyectoPanaderia
             }
         }
 
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            frmMenuAdmin crud = new frmMenuAdmin(empleadoActual);
+            this.Hide();
+            crud.ShowDialog();
+            this.Close();
+        }
     }
 }

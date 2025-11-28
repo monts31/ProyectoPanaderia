@@ -29,19 +29,31 @@ namespace ProyectoPanaderia
             InitializeComponent();
             empleadoActual = empleados;
             txtIdProducto.Text = "N";
+            cboEstado.SelectedIndex = 0;
         }
 
         public frmProductos(clsEmpleados empleados, clsProductos producto)
         {
             InitializeComponent();
+            cboEstado.DropDownStyle = ComboBoxStyle.DropDownList;
             empleadoActual = empleados;
 
             txtIdProducto.Text = producto.id_Producto.ToString();
             txtNombre.Text = producto.nombre;
             txtDescripcion.Text = producto.descripcion;
             txtPrecio.Text = producto.precio.ToString();
-            txtEstado.Text = "Activo";
+
+            if (txtIdProducto.Text == "N") {
+                cboEstado.SelectedIndex = 0;
+            }
+            else{
+                cboEstado.Enabled = true;
+                cboEstado.SelectedItem = producto.estado;
+            }
+
             txtStock.Text = producto.stock.ToString();
+            pcbProducto.Image = clsConvertirImagen.BytesAImagen(producto.foto);
+
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -67,7 +79,7 @@ namespace ProyectoPanaderia
                 producto.descripcion = txtDescripcion.Text.Trim();
                 producto.precio = float.Parse(txtPrecio.Text.Trim());
                 producto.stock = int.Parse(txtStock.Text.Trim());
-                producto.estado = txtEstado.Text.Trim();
+                producto.estado = cboEstado.SelectedItem.ToString();
 
                 if (pcbProducto.Image != null)
                 {
@@ -103,11 +115,11 @@ namespace ProyectoPanaderia
                 {
                     MessageBox.Show("Entre a modificar");
 
-                    clsProductosConsultas guardar = new clsProductosConsultas();
-                    //producto.id_Producto = int.Parse(txtIdProducto.Text);
+                    clsProductosConsultas modificar = new clsProductosConsultas();
+                    producto.id_Producto = int.Parse(txtIdProducto.Text);
                     try
                     {
-                        //guardar.modificarProducto(producto);
+                        modificar.modificarProducto(producto, empleadoActual.usuario);
                         MessageBox.Show("Producto modificado exitosamente.");
 
                         limpiar();
@@ -185,7 +197,10 @@ namespace ProyectoPanaderia
             {
                 try
                 {
-                    pcbProducto.Image = new Bitmap(ofd.FileName);
+                    using (var temp = System.Drawing.Image.FromFile(ofd.FileName))
+                    {
+                        pcbProducto.Image = new Bitmap(temp);
+                    }
                 }
                 catch (Exception ex)
                 {

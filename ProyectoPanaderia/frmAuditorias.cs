@@ -48,7 +48,7 @@ namespace ProyectoPanaderia
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmReporteFecha reporte = new frmReporteFecha();
+            frmReporteFecha reporte = new frmReporteFecha(empleadoActual);
             this.Hide();
             reporte.ShowDialog();
             this.Close();

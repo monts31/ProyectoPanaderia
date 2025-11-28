@@ -19,7 +19,10 @@ namespace ProyectoPanaderia.Backend
 
             using (MemoryStream ms = new MemoryStream())
             {
-                imagen.Save(ms, ImageFormat.Jpeg);
+                using (Bitmap bmp = new Bitmap(imagen))  // ← COPIA
+                {
+                    bmp.Save(ms, ImageFormat.Jpeg);     // ← YA NO FALLA
+                }
                 return ms.ToArray();
             }
         }

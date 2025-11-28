@@ -58,6 +58,7 @@ namespace ProyectoPanaderia
                 producto.precio = float.Parse(dgvProductos.CurrentRow.Cells[3].Value.ToString());
                 producto.stock = Convert.ToInt32(dgvProductos.CurrentRow.Cells[4].Value);
                 producto.estado = dgvProductos.CurrentRow.Cells[5].Value.ToString();
+                producto.foto = dgvProductos.CurrentRow.Cells[6].Value as byte[]; 
 
                 // Abrir el formulario de edición
                 frmProductos modificar = new frmProductos(empleadoActual, producto);
@@ -102,7 +103,7 @@ namespace ProyectoPanaderia
             {
                 try
                 {
-                    //eliminar.eliminarProducto(idProducto);
+                    eliminar.eliminarProducto(idProducto, empleadoActual.usuario);
                     MessageBox.Show("Producto eliminado correctamente");
                 }
                 catch

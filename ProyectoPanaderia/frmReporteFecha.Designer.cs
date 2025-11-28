@@ -34,70 +34,86 @@
             label2 = new Label();
             label3 = new Label();
             btnGenerar = new Button();
+            btnRegresar = new Button();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(110, 42);
+            label1.Location = new Point(126, 56);
             label1.Name = "label1";
-            label1.Size = new Size(204, 15);
+            label1.Size = new Size(263, 20);
             label1.TabIndex = 0;
             label1.Text = "Elija las fechas para generar el reporte";
             // 
             // dtpInicio
             // 
-            dtpInicio.Location = new Point(146, 108);
+            dtpInicio.Location = new Point(167, 144);
+            dtpInicio.Margin = new Padding(3, 4, 3, 4);
             dtpInicio.Name = "dtpInicio";
-            dtpInicio.Size = new Size(200, 23);
+            dtpInicio.Size = new Size(228, 27);
             dtpInicio.TabIndex = 1;
             // 
             // dtpFin
             // 
-            dtpFin.Location = new Point(146, 178);
+            dtpFin.Location = new Point(167, 237);
+            dtpFin.Margin = new Padding(3, 4, 3, 4);
             dtpFin.Name = "dtpFin";
-            dtpFin.Size = new Size(200, 23);
+            dtpFin.Size = new Size(228, 27);
             dtpFin.TabIndex = 2;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(58, 111);
+            label2.Location = new Point(66, 148);
             label2.Name = "label2";
-            label2.Size = new Size(73, 15);
+            label2.Size = new Size(90, 20);
             label2.TabIndex = 3;
             label2.Text = "Fecha inicio:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(67, 178);
+            label3.Location = new Point(77, 237);
             label3.Name = "label3";
-            label3.Size = new Size(58, 15);
+            label3.Size = new Size(71, 20);
             label3.TabIndex = 4;
             label3.Text = "Fecha fin:";
             // 
             // btnGenerar
             // 
-            btnGenerar.Location = new Point(150, 240);
+            btnGenerar.Location = new Point(171, 320);
+            btnGenerar.Margin = new Padding(3, 4, 3, 4);
             btnGenerar.Name = "btnGenerar";
-            btnGenerar.Size = new Size(103, 39);
+            btnGenerar.Size = new Size(118, 52);
             btnGenerar.TabIndex = 5;
             btnGenerar.Text = "Generar reporte";
             btnGenerar.UseVisualStyleBackColor = true;
             btnGenerar.Click += btnGenerar_Click;
             // 
+            // btnRegresar
+            // 
+            btnRegresar.Location = new Point(6, 3);
+            btnRegresar.Name = "btnRegresar";
+            btnRegresar.Size = new Size(46, 41);
+            btnRegresar.TabIndex = 6;
+            btnRegresar.Text = "<---";
+            btnRegresar.UseVisualStyleBackColor = true;
+            btnRegresar.Click += btnRegresar_Click;
+            // 
             // frmReporteFecha
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(416, 337);
+            ClientSize = new Size(475, 449);
+            Controls.Add(btnRegresar);
             Controls.Add(btnGenerar);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(dtpFin);
             Controls.Add(dtpInicio);
             Controls.Add(label1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "frmReporteFecha";
             Text = "frmReporteFecha";
             Load += frmReporteFecha_Load;
@@ -113,5 +129,6 @@
         private Label label2;
         private Label label3;
         private Button btnGenerar;
+        private Button btnRegresar;
     }
 }

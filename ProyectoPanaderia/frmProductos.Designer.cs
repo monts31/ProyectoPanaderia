@@ -30,6 +30,8 @@
         {
             btnGuardar = new Button();
             grbProducto = new GroupBox();
+            cboEstado = new ComboBox();
+            label7 = new Label();
             btnImagen = new Button();
             pcbProducto = new PictureBox();
             txtStock = new TextBox();
@@ -45,8 +47,6 @@
             label1 = new Label();
             lblEmpleados = new Label();
             btnRegresar = new Button();
-            label7 = new Label();
-            txtEstado = new TextBox();
             grbProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcbProducto).BeginInit();
             SuspendLayout();
@@ -63,7 +63,7 @@
             // 
             // grbProducto
             // 
-            grbProducto.Controls.Add(txtEstado);
+            grbProducto.Controls.Add(cboEstado);
             grbProducto.Controls.Add(label7);
             grbProducto.Controls.Add(btnImagen);
             grbProducto.Controls.Add(pcbProducto);
@@ -84,6 +84,26 @@
             grbProducto.TabIndex = 9;
             grbProducto.TabStop = false;
             grbProducto.Text = "Producto";
+            // 
+            // cboEstado
+            // 
+            cboEstado.Enabled = false;
+            cboEstado.FlatStyle = FlatStyle.Flat;
+            cboEstado.FormattingEnabled = true;
+            cboEstado.Items.AddRange(new object[] { "Activo", "Descontinuado" });
+            cboEstado.Location = new Point(527, 170);
+            cboEstado.Name = "cboEstado";
+            cboEstado.Size = new Size(151, 28);
+            cboEstado.TabIndex = 15;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(468, 170);
+            label7.Name = "label7";
+            label7.Size = new Size(57, 20);
+            label7.TabIndex = 13;
+            label7.Text = "Estado:";
             // 
             // btnImagen
             // 
@@ -220,25 +240,6 @@
             btnRegresar.UseVisualStyleBackColor = true;
             btnRegresar.Click += btnRegresar_Click;
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(468, 170);
-            label7.Name = "label7";
-            label7.Size = new Size(57, 20);
-            label7.TabIndex = 13;
-            label7.Text = "Estado:";
-            // 
-            // txtEstado
-            // 
-            txtEstado.Enabled = false;
-            txtEstado.Location = new Point(524, 167);
-            txtEstado.Multiline = true;
-            txtEstado.Name = "txtEstado";
-            txtEstado.Size = new Size(190, 38);
-            txtEstado.TabIndex = 14;
-            txtEstado.Text = "Activo";
-            // 
             // frmProductos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -276,7 +277,7 @@
         private Button btnRegresar;
         private Button btnImagen;
         private PictureBox pcbProducto;
-        private TextBox txtEstado;
         private Label label7;
+        private ComboBox cboEstado;
     }
 }

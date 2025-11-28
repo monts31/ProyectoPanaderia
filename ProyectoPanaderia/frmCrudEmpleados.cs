@@ -38,7 +38,7 @@ namespace ProyectoPanaderia
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-            frmEmpleados insertar = new frmEmpleados(empleadoActual);
+            frmEmpleados insertar = new frmEmpleados();
             this.Hide();
             insertar.ShowDialog();
             this.Close();
@@ -46,10 +46,40 @@ namespace ProyectoPanaderia
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            frmEmpleados insertar = new frmEmpleados(empleadoActual);
-            this.Hide();
-            insertar.ShowDialog();
-            this.Close();
+            if (dgvEmpleados.CurrentRow == null)
+            {
+                MessageBox.Show("Por favor, seleccione un empleado a modificar.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            clsEmpleados empleado = new clsEmpleados();
+
+            try
+            {
+                empleado.id_empleado = Convert.ToInt32(dgvEmpleados.CurrentRow.Cells[0].Value);
+                empleado.nombre = dgvEmpleados.CurrentRow.Cells[1].Value.ToString();
+                empleado.usuario = dgvEmpleados.CurrentRow.Cells[2].Value.ToString();
+                empleado.telefono = dgvEmpleados.CurrentRow.Cells[3].Value.ToString();
+                empleado.correo = dgvEmpleados.CurrentRow.Cells[4].Value.ToString();
+                empleado.rol = dgvEmpleados.CurrentRow.Cells[5].Value.ToString();
+                empleado.horas = Convert.ToInt32(dgvEmpleados.CurrentRow.Cells[6].Value);
+                empleado.sueldo = float.Parse(dgvEmpleados.CurrentRow.Cells[7].Value.ToString());
+                empleado.estado = dgvEmpleados.CurrentRow.Cells[8].Value.ToString();
+
+                // Abrir el formulario de edición
+                frmEmpleados modificar = new frmEmpleados(empleado);
+                this.Hide();
+                modificar.ShowDialog();
+                this.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos del empleado: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         public void cargarProductos()
@@ -59,6 +89,43 @@ namespace ProyectoPanaderia
 
             dgvEmpleados.AllowUserToDeleteRows = true;
             dgvEmpleados.ReadOnly = false;
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvEmpleados.CurrentRow == null)
+            {
+                MessageBox.Show("Por favor, seleccione un producto a actualizar.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            clsEmpleadosConsultas eliminar = new clsEmpleadosConsultas();
+            empleadoActual.id_empleado = Convert.ToInt32(dgvEmpleados.CurrentRow.Cells[0].Value);
+
+            DialogResult r = MessageBox.Show("¿Seguro que deseas eliminar al empleado?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+            if (r == DialogResult.OK)
+            {
+                try
+                {
+                    eliminar.eliminarEmpleado(empleadoActual);
+                    MessageBox.Show("Empleado eliminado correctamente");
+                }
+                catch
+                {
+                    MessageBox.Show("No se pudo eliminar al empleado");
+                }
+                finally
+                {
+                    cargarProductos();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Operación cancelada");
+            }
+
         }
     }
 }
