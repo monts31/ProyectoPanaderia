@@ -13,8 +13,8 @@ namespace ProyectoPanaderia
 {
     public partial class frmMenuAdmin : Form
     {
-        
-        
+
+
         clsEmpleados empleadoActual = new clsEmpleados();
         public frmMenuAdmin(clsEmpleados empleado)
         {
@@ -65,6 +65,14 @@ namespace ProyectoPanaderia
             frmCrudEmpleados crudEmpleados = new frmCrudEmpleados(empleadoActual);
             this.Hide();
             crudEmpleados.ShowDialog();
+            this.Close();
+        }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Form1 login = new Form1();
+            this.Hide();
+            login.ShowDialog();
             this.Close();
         }
     }

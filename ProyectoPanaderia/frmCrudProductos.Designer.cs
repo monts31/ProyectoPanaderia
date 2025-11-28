@@ -35,23 +35,22 @@
             lblCrudProductos = new Label();
             btnRegresar = new Button();
             dgvProductos = new DataGridView();
-            clsProductosBindingSource = new BindingSource(components);
             idProductoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             nombreDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             descripcionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             precioDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             stockDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             fotoDataGridViewImageColumn = new DataGridViewImageColumn();
+            clsProductosBindingSource = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)clsProductosBindingSource).BeginInit();
             SuspendLayout();
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(294, 362);
-            btnEliminar.Margin = new Padding(3, 2, 3, 2);
+            btnEliminar.Location = new Point(336, 483);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(98, 31);
+            btnEliminar.Size = new Size(112, 41);
             btnEliminar.TabIndex = 11;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
@@ -59,21 +58,19 @@
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(164, 362);
-            btnModificar.Margin = new Padding(3, 2, 3, 2);
+            btnModificar.Location = new Point(187, 483);
             btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(98, 31);
+            btnModificar.Size = new Size(112, 41);
             btnModificar.TabIndex = 10;
-            btnModificar.Text = "Modifical";
+            btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = true;
             btnModificar.Click += btnModificar_Click;
             // 
             // btnInsertar
             // 
-            btnInsertar.Location = new Point(34, 362);
-            btnInsertar.Margin = new Padding(3, 2, 3, 2);
+            btnInsertar.Location = new Point(39, 483);
             btnInsertar.Name = "btnInsertar";
-            btnInsertar.Size = new Size(98, 31);
+            btnInsertar.Size = new Size(112, 41);
             btnInsertar.TabIndex = 9;
             btnInsertar.Text = "Insertar";
             btnInsertar.UseVisualStyleBackColor = true;
@@ -82,18 +79,17 @@
             // lblCrudProductos
             // 
             lblCrudProductos.AutoSize = true;
-            lblCrudProductos.Location = new Point(74, 9);
+            lblCrudProductos.Location = new Point(85, 12);
             lblCrudProductos.Name = "lblCrudProductos";
-            lblCrudProductos.Size = new Size(111, 15);
+            lblCrudProductos.Size = new Size(140, 20);
             lblCrudProductos.TabIndex = 8;
             lblCrudProductos.Text = "CRUD de productos";
             // 
             // btnRegresar
             // 
-            btnRegresar.Location = new Point(3, 2);
-            btnRegresar.Margin = new Padding(3, 2, 3, 2);
+            btnRegresar.Location = new Point(3, 3);
             btnRegresar.Name = "btnRegresar";
-            btnRegresar.Size = new Size(40, 31);
+            btnRegresar.Size = new Size(46, 41);
             btnRegresar.TabIndex = 7;
             btnRegresar.Text = "<---";
             btnRegresar.UseVisualStyleBackColor = true;
@@ -105,16 +101,11 @@
             dgvProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvProductos.Columns.AddRange(new DataGridViewColumn[] { idProductoDataGridViewTextBoxColumn, nombreDataGridViewTextBoxColumn, descripcionDataGridViewTextBoxColumn, precioDataGridViewTextBoxColumn, stockDataGridViewTextBoxColumn, fotoDataGridViewImageColumn });
             dgvProductos.DataSource = clsProductosBindingSource;
-            dgvProductos.Location = new Point(34, 59);
-            dgvProductos.Margin = new Padding(3, 2, 3, 2);
+            dgvProductos.Location = new Point(39, 79);
             dgvProductos.Name = "dgvProductos";
             dgvProductos.RowHeadersWidth = 51;
-            dgvProductos.Size = new Size(795, 274);
+            dgvProductos.Size = new Size(909, 365);
             dgvProductos.TabIndex = 6;
-            // 
-            // clsProductosBindingSource
-            // 
-            clsProductosBindingSource.DataSource = typeof(POJO.clsProductos);
             // 
             // idProductoDataGridViewTextBoxColumn
             // 
@@ -165,18 +156,21 @@
             fotoDataGridViewImageColumn.Name = "fotoDataGridViewImageColumn";
             fotoDataGridViewImageColumn.Width = 125;
             // 
+            // clsProductosBindingSource
+            // 
+            clsProductosBindingSource.DataSource = typeof(POJO.clsProductos);
+            // 
             // frmCrudProductos
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(860, 417);
+            ClientSize = new Size(983, 556);
             Controls.Add(btnEliminar);
             Controls.Add(btnModificar);
             Controls.Add(btnInsertar);
             Controls.Add(lblCrudProductos);
             Controls.Add(btnRegresar);
             Controls.Add(dgvProductos);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "frmCrudProductos";
             Text = "frmCrudProductos";
             ((System.ComponentModel.ISupportInitialize)dgvProductos).EndInit();

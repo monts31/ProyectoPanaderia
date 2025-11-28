@@ -117,9 +117,12 @@
             // 
             // pcbProducto
             // 
+            pcbProducto.BackColor = Color.Transparent;
+            pcbProducto.BackgroundImageLayout = ImageLayout.Zoom;
+            pcbProducto.BorderStyle = BorderStyle.FixedSingle;
             pcbProducto.Location = new Point(519, 248);
             pcbProducto.Name = "pcbProducto";
-            pcbProducto.Size = new Size(157, 158);
+            pcbProducto.Size = new Size(159, 175);
             pcbProducto.TabIndex = 11;
             pcbProducto.TabStop = false;
             // 

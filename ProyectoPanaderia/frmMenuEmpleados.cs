@@ -23,6 +23,7 @@ namespace ProyectoPanaderia
         {
             InitializeComponent();
             empleadoActual = empleados;
+            lblEmpleado.Text = "Bienvenido: " + empleadoActual.nombre;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -35,7 +36,7 @@ namespace ProyectoPanaderia
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            frmProductos productos = new frmProductos(empleadoActual);
+            frmCrudProductos productos = new frmCrudProductos(empleadoActual);
             this.Hide();
             productos.ShowDialog();
             this.Close();
@@ -43,7 +44,15 @@ namespace ProyectoPanaderia
 
         private void btnDetallesdeorden_Click(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Form1 login = new Form1();
+            this.Hide();
+            login.ShowDialog();
+            this.Close();
         }
     }
 }

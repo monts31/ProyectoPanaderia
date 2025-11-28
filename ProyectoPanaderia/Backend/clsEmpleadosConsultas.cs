@@ -82,7 +82,7 @@ namespace ProyectoPanaderia.Backend
             {
                 cn.Open();
 
-                string sql = "call pModificarEmpleado (id_empleado = @id_empleado, @nombre, @usuario, @contraseña, @telefono, @correo, " +
+                string sql = "call pModificarEmpleado (@id_empleado, @nombre, @usuario, @contraseña, @telefono, @correo, " +
                     "@rol, @horas, @sueldo, @estado);";
 
                 MySqlCommand cmd = new MySqlCommand(sql, cn);
@@ -111,34 +111,6 @@ namespace ProyectoPanaderia.Backend
             }
         }
 
-        public string obtenerCotraseña(int id)
-        {
-            MySqlConnection cn = Conexion.conexion();
-
-            try
-            {
-                cn.Open();
-                string contra = "";
-
-                string sql = "SELECT contraseña FROM empleados WHERE id_empleado = @id_empleado;";
-
-                MySqlCommand cmd = new MySqlCommand(sql, cn);
-
-                cmd.Parameters.AddWithValue("@id_empleado", id);
-
-                contra = cmd.ExecuteNonQuery().ToString();
-                return contra;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al obtener la cotraseña: " + ex.Message);
-            }
-            finally
-            {
-                cn.Close();
-            }
-        }
-
         public bool eliminarEmpleado(clsEmpleados empleado)
         {
             MySqlConnection cn = Conexion.conexion();
@@ -146,7 +118,7 @@ namespace ProyectoPanaderia.Backend
             try
             {
                 cn.Open();
-                string sql = "call pEliminarEmpleado (id_empleado = @id_empleado);";
+                string sql = "call pEliminarEmpleado (@id_empleado);";
 
                 MySqlCommand cmd = new MySqlCommand(sql, cn);
 

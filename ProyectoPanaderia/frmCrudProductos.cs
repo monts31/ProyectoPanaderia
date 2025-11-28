@@ -76,10 +76,20 @@ namespace ProyectoPanaderia
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
-            frmMenuAdmin menu = new frmMenuAdmin(empleadoActual);
-            this.Hide();
-            menu.ShowDialog();
-            this.Close();
+            if (empleadoActual.rol == "Administrador")
+            {
+                frmMenuAdmin adminForm = new frmMenuAdmin(empleadoActual);
+                this.Hide();
+                adminForm.ShowDialog();
+                this.Close();
+            }
+            else if (empleadoActual.rol == "Empleado")
+            {
+                frmMenuEmpleados empleadosform = new frmMenuEmpleados(empleadoActual);
+                this.Hide();
+                empleadosform.ShowDialog();
+                this.Close();
+            }
         }
 
         public void cargarProductos()

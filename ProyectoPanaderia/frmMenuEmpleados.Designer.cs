@@ -31,14 +31,17 @@
             btnDetallesdeorden = new Button();
             btnProductos = new Button();
             btnVentas = new Button();
+            btnCerrarSesion = new Button();
+            lblEmpleado = new Label();
             SuspendLayout();
             // 
             // btnDetallesdeorden
             // 
             btnDetallesdeorden.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnDetallesdeorden.Location = new Point(544, 213);
+            btnDetallesdeorden.Location = new Point(622, 284);
+            btnDetallesdeorden.Margin = new Padding(3, 4, 3, 4);
             btnDetallesdeorden.Name = "btnDetallesdeorden";
-            btnDetallesdeorden.Size = new Size(215, 37);
+            btnDetallesdeorden.Size = new Size(246, 49);
             btnDetallesdeorden.TabIndex = 7;
             btnDetallesdeorden.Text = "Detalles de orden";
             btnDetallesdeorden.UseVisualStyleBackColor = true;
@@ -47,9 +50,10 @@
             // btnProductos
             // 
             btnProductos.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnProductos.Location = new Point(286, 213);
+            btnProductos.Location = new Point(327, 284);
+            btnProductos.Margin = new Padding(3, 4, 3, 4);
             btnProductos.Name = "btnProductos";
-            btnProductos.Size = new Size(215, 37);
+            btnProductos.Size = new Size(246, 49);
             btnProductos.TabIndex = 6;
             btnProductos.Text = "Productos";
             btnProductos.UseVisualStyleBackColor = true;
@@ -58,25 +62,49 @@
             // btnVentas
             // 
             btnVentas.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnVentas.Location = new Point(34, 213);
+            btnVentas.Location = new Point(39, 284);
+            btnVentas.Margin = new Padding(3, 4, 3, 4);
             btnVentas.Name = "btnVentas";
-            btnVentas.Size = new Size(215, 37);
+            btnVentas.Size = new Size(246, 49);
             btnVentas.TabIndex = 5;
             btnVentas.Text = "Ventas";
             btnVentas.UseVisualStyleBackColor = true;
             btnVentas.Click += button1_Click;
             // 
+            // btnCerrarSesion
+            // 
+            btnCerrarSesion.Location = new Point(743, 20);
+            btnCerrarSesion.Name = "btnCerrarSesion";
+            btnCerrarSesion.Size = new Size(149, 29);
+            btnCerrarSesion.TabIndex = 12;
+            btnCerrarSesion.Text = "Cerrar Sesión";
+            btnCerrarSesion.UseVisualStyleBackColor = true;
+            btnCerrarSesion.Click += btnCerrarSesion_Click;
+            // 
+            // lblEmpleado
+            // 
+            lblEmpleado.AutoSize = true;
+            lblEmpleado.Location = new Point(39, 33);
+            lblEmpleado.Name = "lblEmpleado";
+            lblEmpleado.Size = new Size(82, 20);
+            lblEmpleado.TabIndex = 11;
+            lblEmpleado.Text = "Bievenido: ";
+            // 
             // frmMenuEmpleados
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
+            Controls.Add(btnCerrarSesion);
+            Controls.Add(lblEmpleado);
             Controls.Add(btnDetallesdeorden);
             Controls.Add(btnProductos);
             Controls.Add(btnVentas);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "frmMenuEmpleados";
             Text = "Form2";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -84,5 +112,7 @@
         private Button btnDetallesdeorden;
         private Button btnProductos;
         private Button btnVentas;
+        private Button btnCerrarSesion;
+        private Label lblEmpleado;
     }
 }

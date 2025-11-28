@@ -111,6 +111,7 @@ namespace ProyectoPanaderia
                     MessageBox.Show("Entre a modificar");
 
                     clsEmpleadosConsultas modificar = new clsEmpleadosConsultas();
+
                     empleado.id_empleado = int.Parse(txtIdEmpleado.Text);
 
                     try
@@ -119,7 +120,7 @@ namespace ProyectoPanaderia
                         MessageBox.Show("Empleado modificado exitosamente.");
 
                         limpiar();
-                        frmCrudProductos crud = new frmCrudProductos(empleadoActual);
+                        frmCrudEmpleados crud = new frmCrudEmpleados(empleadoActual);
                         this.Hide();
                         crud.ShowDialog();
                         this.Close();
