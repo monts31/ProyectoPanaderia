@@ -30,7 +30,7 @@
         {
             btnProductos = new Button();
             btnAuditorias = new Button();
-            btnDetallesdeorden = new Button();
+            btnReportes = new Button();
             btnVentas = new Button();
             Crud_Empleados = new Button();
             lblEmpleado = new Label();
@@ -40,10 +40,9 @@
             // btnProductos
             // 
             btnProductos.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnProductos.Location = new Point(354, 234);
-            btnProductos.Margin = new Padding(3, 4, 3, 4);
+            btnProductos.Location = new Point(310, 176);
             btnProductos.Name = "btnProductos";
-            btnProductos.Size = new Size(246, 49);
+            btnProductos.Size = new Size(215, 37);
             btnProductos.TabIndex = 3;
             btnProductos.Text = "CRUD Productos";
             btnProductos.UseVisualStyleBackColor = true;
@@ -52,34 +51,31 @@
             // btnAuditorias
             // 
             btnAuditorias.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnAuditorias.Location = new Point(639, 121);
-            btnAuditorias.Margin = new Padding(3, 4, 3, 4);
+            btnAuditorias.Location = new Point(559, 91);
             btnAuditorias.Name = "btnAuditorias";
-            btnAuditorias.Size = new Size(246, 49);
+            btnAuditorias.Size = new Size(215, 37);
             btnAuditorias.TabIndex = 5;
             btnAuditorias.Text = "Auditorias";
             btnAuditorias.UseVisualStyleBackColor = true;
             btnAuditorias.Click += btnAuditorias_Click;
             // 
-            // btnDetallesdeorden
+            // btnReportes
             // 
-            btnDetallesdeorden.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnDetallesdeorden.Location = new Point(639, 375);
-            btnDetallesdeorden.Margin = new Padding(3, 4, 3, 4);
-            btnDetallesdeorden.Name = "btnDetallesdeorden";
-            btnDetallesdeorden.Size = new Size(246, 49);
-            btnDetallesdeorden.TabIndex = 4;
-            btnDetallesdeorden.Text = "Detalles de orden";
-            btnDetallesdeorden.UseVisualStyleBackColor = true;
-            btnDetallesdeorden.Click += btnDetallesdeorden_Click;
+            btnReportes.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnReportes.Location = new Point(559, 281);
+            btnReportes.Name = "btnReportes";
+            btnReportes.Size = new Size(215, 37);
+            btnReportes.TabIndex = 4;
+            btnReportes.Text = "Reportes";
+            btnReportes.UseVisualStyleBackColor = true;
+            btnReportes.Click += btnDetallesdeorden_Click;
             // 
             // btnVentas
             // 
             btnVentas.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnVentas.Location = new Point(91, 375);
-            btnVentas.Margin = new Padding(3, 4, 3, 4);
+            btnVentas.Location = new Point(80, 281);
             btnVentas.Name = "btnVentas";
-            btnVentas.Size = new Size(246, 49);
+            btnVentas.Size = new Size(215, 37);
             btnVentas.TabIndex = 6;
             btnVentas.Text = "Ventas";
             btnVentas.UseVisualStyleBackColor = true;
@@ -88,10 +84,9 @@
             // Crud_Empleados
             // 
             Crud_Empleados.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Crud_Empleados.Location = new Point(100, 121);
-            Crud_Empleados.Margin = new Padding(3, 4, 3, 4);
+            Crud_Empleados.Location = new Point(88, 91);
             Crud_Empleados.Name = "Crud_Empleados";
-            Crud_Empleados.Size = new Size(246, 49);
+            Crud_Empleados.Size = new Size(215, 37);
             Crud_Empleados.TabIndex = 8;
             Crud_Empleados.Text = "CRUD Empleados";
             Crud_Empleados.UseVisualStyleBackColor = true;
@@ -100,17 +95,18 @@
             // lblEmpleado
             // 
             lblEmpleado.AutoSize = true;
-            lblEmpleado.Location = new Point(49, 25);
+            lblEmpleado.Location = new Point(43, 19);
             lblEmpleado.Name = "lblEmpleado";
-            lblEmpleado.Size = new Size(82, 20);
+            lblEmpleado.Size = new Size(65, 15);
             lblEmpleado.TabIndex = 9;
             lblEmpleado.Text = "Bievenido: ";
             // 
             // btnCerrarSesion
             // 
-            btnCerrarSesion.Location = new Point(753, 12);
+            btnCerrarSesion.Location = new Point(659, 9);
+            btnCerrarSesion.Margin = new Padding(3, 2, 3, 2);
             btnCerrarSesion.Name = "btnCerrarSesion";
-            btnCerrarSesion.Size = new Size(149, 29);
+            btnCerrarSesion.Size = new Size(130, 22);
             btnCerrarSesion.TabIndex = 10;
             btnCerrarSesion.Text = "Cerrar Sesión";
             btnCerrarSesion.UseVisualStyleBackColor = true;
@@ -118,17 +114,16 @@
             // 
             // frmMenuAdmin
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(800, 450);
             Controls.Add(btnCerrarSesion);
             Controls.Add(lblEmpleado);
             Controls.Add(Crud_Empleados);
             Controls.Add(btnVentas);
             Controls.Add(btnAuditorias);
-            Controls.Add(btnDetallesdeorden);
+            Controls.Add(btnReportes);
             Controls.Add(btnProductos);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "frmMenuAdmin";
             Text = "Form2";
             ResumeLayout(false);
@@ -138,7 +133,7 @@
         #endregion
         private Button btnProductos;
         private Button btnAuditorias;
-        private Button btnDetallesdeorden;
+        private Button btnReportes;
         private Button btnVentas;
         private Button Crud_Empleados;
         private Label lblEmpleado;

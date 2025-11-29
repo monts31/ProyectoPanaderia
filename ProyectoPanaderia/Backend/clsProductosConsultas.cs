@@ -22,7 +22,7 @@ namespace ProyectoPanaderia.Backend
             {
                 cn.Open();
 
-                string query = "SELECT id_producto, nombre, precio,stock, foto FROM productos";
+                string query = "SELECT id_producto, nombre, precio,stock, foto FROM productos where estado='Activo'";
 
                 MySqlCommand comando = new MySqlCommand(query, cn);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(comando);
@@ -258,6 +258,39 @@ namespace ProyectoPanaderia.Backend
             {
                 MessageBox.Show("Error en modificarProducto: " + e.Message);
                 return false;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        public void cargarProductoLista(CheckedListBox lista)
+        {
+            MySqlConnection cn = Conexion.conexion();
+            try
+            {
+                cn.Open();
+                string query = "SELECT id_producto, nombre FROM productos WHERE estado = 'Activo'";
+                MySqlCommand comando = new MySqlCommand(query, cn);
+                MySqlDataReader reader = comando.ExecuteReader();
+                
+                    lista.Items.Clear();
+
+                    while (reader.Read())
+                    {
+                        ProductoItem p = new ProductoItem
+                        {
+                            IdProducto = reader.GetInt32("id_producto"),
+                            Nombre = reader.GetString("nombre")
+                        };
+
+                        lista.Items.Add(p, false);
+                    }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error al cargar productos: " + e.Message);
             }
             finally
             {
