@@ -155,6 +155,7 @@ namespace ProyectoPanaderia
                 MessageBox.Show("La fecha de inicio no puede ser mayor a la fecha actual.", "Error de fechas", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            dataGridView1.DataSource = auditorias.reporte(dtpInicio.Value.Date, dtpFin.Value.Date);
             ExportarReporte(dtpInicio.Value.Date, dtpFin.Value.Date);
         }
 
