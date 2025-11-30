@@ -37,41 +37,45 @@
             // 
             // txtUsuario
             // 
-            txtUsuario.Location = new Point(267, 110);
+            txtUsuario.Location = new Point(305, 147);
+            txtUsuario.Margin = new Padding(3, 4, 3, 4);
             txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new Size(235, 23);
+            txtUsuario.Size = new Size(268, 27);
             txtUsuario.TabIndex = 0;
             // 
             // txtContraseña
             // 
-            txtContraseña.Location = new Point(267, 173);
+            txtContraseña.Location = new Point(305, 231);
+            txtContraseña.Margin = new Padding(3, 4, 3, 4);
             txtContraseña.Name = "txtContraseña";
-            txtContraseña.Size = new Size(235, 23);
+            txtContraseña.PasswordChar = '*';
+            txtContraseña.Size = new Size(268, 27);
             txtContraseña.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(151, 110);
+            label1.Location = new Point(173, 147);
             label1.Name = "label1";
-            label1.Size = new Size(47, 15);
+            label1.Size = new Size(59, 20);
             label1.TabIndex = 2;
             label1.Text = "Usuario";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(151, 179);
+            label2.Location = new Point(173, 239);
             label2.Name = "label2";
-            label2.Size = new Size(67, 15);
+            label2.Size = new Size(83, 20);
             label2.TabIndex = 3;
             label2.Text = "Contraseña";
             // 
             // btnIngresar
             // 
-            btnIngresar.Location = new Point(300, 245);
+            btnIngresar.Location = new Point(343, 327);
+            btnIngresar.Margin = new Padding(3, 4, 3, 4);
             btnIngresar.Name = "btnIngresar";
-            btnIngresar.Size = new Size(132, 40);
+            btnIngresar.Size = new Size(151, 53);
             btnIngresar.TabIndex = 4;
             btnIngresar.Text = "Ingresar";
             btnIngresar.UseVisualStyleBackColor = true;
@@ -79,14 +83,15 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1147, 693);
             Controls.Add(btnIngresar);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(txtContraseña);
             Controls.Add(txtUsuario);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);

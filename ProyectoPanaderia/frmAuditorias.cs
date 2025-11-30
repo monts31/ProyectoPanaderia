@@ -46,12 +46,12 @@ namespace ProyectoPanaderia
             llenarAuditorias();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            frmReporteFecha reporte = new frmReporteFecha(empleadoActual);
-            this.Hide();
-            reporte.ShowDialog();
-            this.Close();
-        }
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    frmReporteFecha reporte = new frmReporteFecha(empleadoActual);
+        //    this.Hide();
+        //    reporte.ShowDialog();
+        //    this.Close();
+        //}
     }
 }

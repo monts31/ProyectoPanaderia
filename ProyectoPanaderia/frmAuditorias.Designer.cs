@@ -30,7 +30,6 @@
         {
             dataGridView1 = new DataGridView();
             btnRegresar = new Button();
-            btnReporte = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -38,41 +37,31 @@
             // 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(26, 73);
+            dataGridView1.Location = new Point(30, 97);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(725, 296);
+            dataGridView1.Size = new Size(829, 395);
             dataGridView1.TabIndex = 0;
             // 
             // btnRegresar
             // 
-            btnRegresar.Location = new Point(4, 2);
-            btnRegresar.Margin = new Padding(3, 2, 3, 2);
+            btnRegresar.Location = new Point(5, 3);
             btnRegresar.Name = "btnRegresar";
-            btnRegresar.Size = new Size(40, 31);
+            btnRegresar.Size = new Size(46, 41);
             btnRegresar.TabIndex = 8;
             btnRegresar.Text = "<---";
             btnRegresar.UseVisualStyleBackColor = true;
             btnRegresar.Click += btnRegresar_Click;
             // 
-            // btnReporte
-            // 
-            btnReporte.Location = new Point(603, 392);
-            btnReporte.Name = "btnReporte";
-            btnReporte.Size = new Size(127, 36);
-            btnReporte.TabIndex = 9;
-            btnReporte.Text = "Generar reporte";
-            btnReporte.UseVisualStyleBackColor = true;
-            btnReporte.Click += button1_Click;
-            // 
             // frmAuditorias
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(btnReporte);
+            ClientSize = new Size(914, 600);
             Controls.Add(btnRegresar);
             Controls.Add(dataGridView1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "frmAuditorias";
             Text = "frmAuditorias";
             Load += frmAuditorias_Load;
@@ -84,6 +73,5 @@
 
         private DataGridView dataGridView1;
         private Button btnRegresar;
-        private Button btnReporte;
     }
 }

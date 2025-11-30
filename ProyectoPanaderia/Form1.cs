@@ -25,7 +25,7 @@ namespace ProyectoPanaderia
             {
                 if (login.IniciarSesion(empleado))
                 {
-                    MessageBox.Show("Bienvenido: "+empleado.nombre + empleado.rol);
+                    MessageBox.Show("Bienvenido: " + empleado.nombre + empleado.rol);
                     if (empleado.rol == "Administrador")
                     {
                         frmMenuAdmin adminForm = new frmMenuAdmin(empleado);
@@ -40,7 +40,7 @@ namespace ProyectoPanaderia
                         empleadosform.ShowDialog();
                         this.Close();
                     }
-                    
+
                 }
                 else
                 {
@@ -52,6 +52,11 @@ namespace ProyectoPanaderia
                 MessageBox.Show("Error al iniciar sesión: " + ex.Message);
 
             }
+        }
+
+        private void txtContraseña_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

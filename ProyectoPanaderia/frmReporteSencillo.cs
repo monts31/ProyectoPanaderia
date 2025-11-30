@@ -1,5 +1,6 @@
 ﻿using ClosedXML.Excel;
 using ProyectoPanaderia.Backend;
+using ProyectoPanaderia.POJO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,9 +18,16 @@ namespace ProyectoPanaderia
     {
         clsProductosConsultas productosConsultas = new clsProductosConsultas();
         clsAuditorias auditorias = new clsAuditorias();
+        clsEmpleados empleadoActual = new clsEmpleados();
         public frmReporteSencillo()
         {
             InitializeComponent();
+        }
+
+        public frmReporteSencillo(clsEmpleados empleado)
+        {
+            InitializeComponent();
+            empleadoActual = empleado;
         }
 
         private void frmReporteSencillo_Load(object sender, EventArgs e)
@@ -197,6 +205,24 @@ namespace ProyectoPanaderia
             catch (Exception ex)
             {
                 MessageBox.Show("Error al exportar: " + ex.Message);
+            }
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            if (empleadoActual.rol == "Administrador")
+            {
+                frmMenuAdmin adminForm = new frmMenuAdmin(empleadoActual);
+                this.Hide();
+                adminForm.ShowDialog();
+                this.Close();
+            }
+            else if (empleadoActual.rol == "Empleado")
+            {
+                frmMenuEmpleados empleadosform = new frmMenuEmpleados(empleadoActual);
+                this.Hide();
+                empleadosform.ShowDialog();
+                this.Close();
             }
         }
     }

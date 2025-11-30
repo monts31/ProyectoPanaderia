@@ -44,6 +44,10 @@ namespace ProyectoPanaderia
 
         private void btnDetallesdeorden_Click(object sender, EventArgs e)
         {
+            frmReporteSencillo frm = new frmReporteSencillo(empleadoActual);
+            this.Hide();
+            frm.ShowDialog();
+            this.Close();
 
         }
 
