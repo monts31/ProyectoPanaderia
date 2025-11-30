@@ -94,12 +94,14 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1174, 617);
             Controls.Add(btnIngresar);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(txtContraseña);
             Controls.Add(txtUsuario);
+            DoubleBuffered = true;
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
