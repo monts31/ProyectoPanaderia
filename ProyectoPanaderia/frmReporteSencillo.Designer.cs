@@ -247,7 +247,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 695);
+            ClientSize = new Size(1342, 823);
             Controls.Add(btnRegresar);
             Controls.Add(tabControl1);
             Margin = new Padding(3, 4, 3, 4);

@@ -40,9 +40,10 @@
             // btnProductos
             // 
             btnProductos.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnProductos.Location = new Point(310, 176);
+            btnProductos.Location = new Point(354, 235);
+            btnProductos.Margin = new Padding(3, 4, 3, 4);
             btnProductos.Name = "btnProductos";
-            btnProductos.Size = new Size(215, 37);
+            btnProductos.Size = new Size(246, 49);
             btnProductos.TabIndex = 3;
             btnProductos.Text = "CRUD Productos";
             btnProductos.UseVisualStyleBackColor = true;
@@ -51,9 +52,10 @@
             // btnAuditorias
             // 
             btnAuditorias.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnAuditorias.Location = new Point(559, 91);
+            btnAuditorias.Location = new Point(639, 121);
+            btnAuditorias.Margin = new Padding(3, 4, 3, 4);
             btnAuditorias.Name = "btnAuditorias";
-            btnAuditorias.Size = new Size(215, 37);
+            btnAuditorias.Size = new Size(246, 49);
             btnAuditorias.TabIndex = 5;
             btnAuditorias.Text = "Auditorias";
             btnAuditorias.UseVisualStyleBackColor = true;
@@ -62,9 +64,10 @@
             // btnReportes
             // 
             btnReportes.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnReportes.Location = new Point(559, 281);
+            btnReportes.Location = new Point(639, 375);
+            btnReportes.Margin = new Padding(3, 4, 3, 4);
             btnReportes.Name = "btnReportes";
-            btnReportes.Size = new Size(215, 37);
+            btnReportes.Size = new Size(246, 49);
             btnReportes.TabIndex = 4;
             btnReportes.Text = "Reportes";
             btnReportes.UseVisualStyleBackColor = true;
@@ -73,9 +76,10 @@
             // btnVentas
             // 
             btnVentas.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnVentas.Location = new Point(80, 281);
+            btnVentas.Location = new Point(91, 375);
+            btnVentas.Margin = new Padding(3, 4, 3, 4);
             btnVentas.Name = "btnVentas";
-            btnVentas.Size = new Size(215, 37);
+            btnVentas.Size = new Size(246, 49);
             btnVentas.TabIndex = 6;
             btnVentas.Text = "Ventas";
             btnVentas.UseVisualStyleBackColor = true;
@@ -84,9 +88,10 @@
             // Crud_Empleados
             // 
             Crud_Empleados.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Crud_Empleados.Location = new Point(88, 91);
+            Crud_Empleados.Location = new Point(101, 121);
+            Crud_Empleados.Margin = new Padding(3, 4, 3, 4);
             Crud_Empleados.Name = "Crud_Empleados";
-            Crud_Empleados.Size = new Size(215, 37);
+            Crud_Empleados.Size = new Size(246, 49);
             Crud_Empleados.TabIndex = 8;
             Crud_Empleados.Text = "CRUD Empleados";
             Crud_Empleados.UseVisualStyleBackColor = true;
@@ -95,18 +100,17 @@
             // lblEmpleado
             // 
             lblEmpleado.AutoSize = true;
-            lblEmpleado.Location = new Point(43, 19);
+            lblEmpleado.Location = new Point(49, 25);
             lblEmpleado.Name = "lblEmpleado";
-            lblEmpleado.Size = new Size(65, 15);
+            lblEmpleado.Size = new Size(82, 20);
             lblEmpleado.TabIndex = 9;
             lblEmpleado.Text = "Bievenido: ";
             // 
             // btnCerrarSesion
             // 
-            btnCerrarSesion.Location = new Point(659, 9);
-            btnCerrarSesion.Margin = new Padding(3, 2, 3, 2);
+            btnCerrarSesion.Location = new Point(753, 12);
             btnCerrarSesion.Name = "btnCerrarSesion";
-            btnCerrarSesion.Size = new Size(130, 22);
+            btnCerrarSesion.Size = new Size(149, 29);
             btnCerrarSesion.TabIndex = 10;
             btnCerrarSesion.Text = "Cerrar Sesión";
             btnCerrarSesion.UseVisualStyleBackColor = true;
@@ -114,9 +118,9 @@
             // 
             // frmMenuAdmin
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1342, 823);
             Controls.Add(btnCerrarSesion);
             Controls.Add(lblEmpleado);
             Controls.Add(Crud_Empleados);
@@ -124,6 +128,7 @@
             Controls.Add(btnAuditorias);
             Controls.Add(btnReportes);
             Controls.Add(btnProductos);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "frmMenuAdmin";
             Text = "Form2";
             ResumeLayout(false);

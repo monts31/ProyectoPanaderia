@@ -48,10 +48,11 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { IdProducto, nombre, precio, cantidad, total, Accion });
-            dataGridView1.Location = new Point(356, 64);
+            dataGridView1.Location = new Point(407, 85);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(505, 127);
+            dataGridView1.Size = new Size(577, 169);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
@@ -103,16 +104,18 @@
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.Location = new Point(41, 42);
+            flowLayoutPanel1.Location = new Point(47, 56);
+            flowLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(231, 340);
+            flowLayoutPanel1.Size = new Size(264, 453);
             flowLayoutPanel1.TabIndex = 1;
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(486, 232);
+            btnCancelar.Location = new Point(555, 309);
+            btnCancelar.Margin = new Padding(3, 4, 3, 4);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(125, 41);
+            btnCancelar.Size = new Size(143, 55);
             btnCancelar.TabIndex = 2;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
@@ -120,9 +123,10 @@
             // 
             // btnConfirmar
             // 
-            btnConfirmar.Location = new Point(668, 232);
+            btnConfirmar.Location = new Point(763, 309);
+            btnConfirmar.Margin = new Padding(3, 4, 3, 4);
             btnConfirmar.Name = "btnConfirmar";
-            btnConfirmar.Size = new Size(107, 41);
+            btnConfirmar.Size = new Size(122, 55);
             btnConfirmar.TabIndex = 3;
             btnConfirmar.Text = "Confirmar venta";
             btnConfirmar.UseVisualStyleBackColor = true;
@@ -130,10 +134,9 @@
             // 
             // btnRegresar
             // 
-            btnRegresar.Location = new Point(6, 2);
-            btnRegresar.Margin = new Padding(3, 2, 3, 2);
+            btnRegresar.Location = new Point(7, 3);
             btnRegresar.Name = "btnRegresar";
-            btnRegresar.Size = new Size(40, 31);
+            btnRegresar.Size = new Size(46, 41);
             btnRegresar.TabIndex = 9;
             btnRegresar.Text = "<---";
             btnRegresar.UseVisualStyleBackColor = true;
@@ -142,23 +145,24 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(308, 9);
+            label1.Location = new Point(352, 12);
             label1.Name = "label1";
-            label1.Size = new Size(38, 15);
+            label1.Size = new Size(50, 20);
             label1.TabIndex = 10;
             label1.Text = "label1";
             // 
             // frmVentas
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(901, 450);
+            ClientSize = new Size(1342, 823);
             Controls.Add(label1);
             Controls.Add(btnRegresar);
             Controls.Add(btnConfirmar);
             Controls.Add(btnCancelar);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(dataGridView1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "frmVentas";
             Text = "frmVentas";
             Load += frmVentas_Load;

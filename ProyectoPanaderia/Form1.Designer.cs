@@ -37,7 +37,7 @@
             // 
             // txtUsuario
             // 
-            txtUsuario.Location = new Point(305, 147);
+            txtUsuario.Location = new Point(546, 278);
             txtUsuario.Margin = new Padding(3, 4, 3, 4);
             txtUsuario.Name = "txtUsuario";
             txtUsuario.Size = new Size(268, 27);
@@ -45,7 +45,7 @@
             // 
             // txtContraseña
             // 
-            txtContraseña.Location = new Point(305, 231);
+            txtContraseña.Location = new Point(550, 351);
             txtContraseña.Margin = new Padding(3, 4, 3, 4);
             txtContraseña.Name = "txtContraseña";
             txtContraseña.PasswordChar = '*';
@@ -55,7 +55,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(173, 147);
+            label1.Location = new Point(446, 285);
             label1.Name = "label1";
             label1.Size = new Size(59, 20);
             label1.TabIndex = 2;
@@ -64,7 +64,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(173, 239);
+            label2.Location = new Point(418, 359);
             label2.Name = "label2";
             label2.Size = new Size(83, 20);
             label2.TabIndex = 3;
@@ -72,7 +72,7 @@
             // 
             // btnIngresar
             // 
-            btnIngresar.Location = new Point(343, 327);
+            btnIngresar.Location = new Point(588, 447);
             btnIngresar.Margin = new Padding(3, 4, 3, 4);
             btnIngresar.Name = "btnIngresar";
             btnIngresar.Size = new Size(151, 53);
@@ -85,7 +85,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1147, 693);
+            ClientSize = new Size(1342, 823);
             Controls.Add(btnIngresar);
             Controls.Add(label2);
             Controls.Add(label1);

@@ -247,7 +247,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(978, 688);
+            ClientSize = new Size(1342, 823);
             Controls.Add(btnGuardar);
             Controls.Add(grbProducto);
             Controls.Add(lblEmpleados);
