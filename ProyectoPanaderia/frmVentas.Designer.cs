@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVentas));
             dataGridView1 = new DataGridView();
             IdProducto = new DataGridViewTextBoxColumn();
             nombre = new DataGridViewTextBoxColumn();
@@ -48,11 +49,10 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { IdProducto, nombre, precio, cantidad, total, Accion });
-            dataGridView1.Location = new Point(407, 85);
-            dataGridView1.Margin = new Padding(3, 4, 3, 4);
+            dataGridView1.Location = new Point(408, 100);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(577, 169);
+            dataGridView1.Size = new Size(623, 377);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
@@ -104,65 +104,73 @@
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.Location = new Point(47, 56);
-            flowLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
+            flowLayoutPanel1.Location = new Point(149, 100);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(264, 453);
+            flowLayoutPanel1.Size = new Size(231, 377);
             flowLayoutPanel1.TabIndex = 1;
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(555, 309);
-            btnCancelar.Margin = new Padding(3, 4, 3, 4);
+            btnCancelar.BackColor = Color.FromArgb(211, 253, 193);
+            btnCancelar.Font = new Font("Baskerville Old Face", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnCancelar.Location = new Point(356, 534);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(143, 55);
+            btnCancelar.Size = new Size(180, 41);
             btnCancelar.TabIndex = 2;
             btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
             // 
             // btnConfirmar
             // 
-            btnConfirmar.Location = new Point(763, 309);
-            btnConfirmar.Margin = new Padding(3, 4, 3, 4);
+            btnConfirmar.BackColor = Color.FromArgb(211, 253, 193);
+            btnConfirmar.Font = new Font("Baskerville Old Face", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnConfirmar.Location = new Point(631, 534);
             btnConfirmar.Name = "btnConfirmar";
-            btnConfirmar.Size = new Size(122, 55);
+            btnConfirmar.Size = new Size(209, 41);
             btnConfirmar.TabIndex = 3;
-            btnConfirmar.Text = "Confirmar venta";
-            btnConfirmar.UseVisualStyleBackColor = true;
+            btnConfirmar.Text = "CONFIRMAR VENTA";
+            btnConfirmar.UseVisualStyleBackColor = false;
             btnConfirmar.Click += btnConfirmar_Click;
             // 
             // btnRegresar
             // 
-            btnRegresar.Location = new Point(7, 3);
+            btnRegresar.BackColor = Color.FromArgb(192, 255, 192);
+            btnRegresar.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRegresar.Location = new Point(25, 11);
+            btnRegresar.Margin = new Padding(3, 2, 3, 2);
             btnRegresar.Name = "btnRegresar";
-            btnRegresar.Size = new Size(46, 41);
+            btnRegresar.Size = new Size(49, 37);
             btnRegresar.TabIndex = 9;
             btnRegresar.Text = "<---";
-            btnRegresar.UseVisualStyleBackColor = true;
+            btnRegresar.UseVisualStyleBackColor = false;
             btnRegresar.Click += btnRegresar_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(352, 12);
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Baskerville Old Face", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(396, 26);
             label1.Name = "label1";
-            label1.Size = new Size(50, 20);
+            label1.Size = new Size(56, 22);
             label1.TabIndex = 10;
             label1.Text = "label1";
             // 
             // frmVentas
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1342, 823);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(1174, 617);
             Controls.Add(label1);
             Controls.Add(btnRegresar);
             Controls.Add(btnConfirmar);
             Controls.Add(btnCancelar);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(dataGridView1);
-            Margin = new Padding(3, 4, 3, 4);
+            DoubleBuffered = true;
             Name = "frmVentas";
             Text = "frmVentas";
             Load += frmVentas_Load;

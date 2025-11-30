@@ -43,10 +43,12 @@ namespace ProyectoPanaderia
             txtDescripcion.Text = producto.descripcion;
             txtPrecio.Text = producto.precio.ToString();
 
-            if (txtIdProducto.Text == "N") {
+            if (txtIdProducto.Text == "N")
+            {
                 cboEstado.SelectedIndex = 0;
             }
-            else{
+            else
+            {
                 cboEstado.Enabled = true;
                 cboEstado.SelectedItem = producto.estado;
             }
@@ -207,6 +209,16 @@ namespace ProyectoPanaderia
                     MessageBox.Show("Error al cargar la imagen: " + ex.Message);
                 }
             }
+        }
+
+        private void grbProducto_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblEmpleados_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
