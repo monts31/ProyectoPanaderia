@@ -15,12 +15,20 @@ namespace ProyectoPanaderia
 {
     public partial class frmEmpleados : Form
     {
+        /// Objeto de tipo clsEmpleados para almacenar el empleado actual.
         clsEmpleados empleadoActual = new clsEmpleados();
+
+        ///  Constructor por defecto del formulario, el cual se usa para insertar un nuevo empleado.
         public frmEmpleados()
         {
             InitializeComponent();
+            /// Configurar los ComboBox para que no permitan editar el texto directamente.
+            /// Se lleva a cabo para evitar errores de ingreso de datos.
             cboEstado.DropDownStyle = ComboBoxStyle.DropDownList;
             cboRol.DropDownStyle = ComboBoxStyle.DropDownList;
+
+
+            /// Si se inserta un empleado, por logia debe de estar activo, por lo que el ComboBox de estado se deshabilita y se selecciona "Activo" por defecto.
             cboEstado.SelectedIndex = 0;
             cboEstado.Enabled = false;
 

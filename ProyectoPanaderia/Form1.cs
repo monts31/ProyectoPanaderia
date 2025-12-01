@@ -16,10 +16,13 @@ namespace ProyectoPanaderia
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
+            /// Crear un objeto clsEmpleados y asignar los valores de usuario y contraseña desde los campos de texto
             clsEmpleados empleado = new clsEmpleados();
             empleado.usuario = txtUsuario.Text.Trim();
             empleado.contraseña = txtContraseña.Text.Trim();
 
+            /// Crea el objeto clsLogin para manejar la lógica de inicio de sesión
+            /// Revisa si el inicio de sesión es exitoso y abre el formulario correspondiente según el rol del empleado
             Backend.clsLogin login = new Backend.clsLogin();
             try
             {

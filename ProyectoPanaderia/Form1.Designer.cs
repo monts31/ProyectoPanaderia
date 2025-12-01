@@ -39,18 +39,20 @@
             // txtUsuario
             // 
             txtUsuario.Font = new Font("Segoe UI", 14.25F);
-            txtUsuario.Location = new Point(488, 288);
+            txtUsuario.Location = new Point(558, 384);
+            txtUsuario.Margin = new Padding(3, 4, 3, 4);
             txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new Size(281, 33);
+            txtUsuario.Size = new Size(321, 39);
             txtUsuario.TabIndex = 0;
             // 
             // txtContraseña
             // 
             txtContraseña.Font = new Font("Segoe UI", 14.25F);
-            txtContraseña.Location = new Point(491, 343);
+            txtContraseña.Location = new Point(559, 457);
+            txtContraseña.Margin = new Padding(3, 4, 3, 4);
             txtContraseña.Name = "txtContraseña";
             txtContraseña.PasswordChar = '*';
-            txtContraseña.Size = new Size(278, 33);
+            txtContraseña.Size = new Size(317, 39);
             txtContraseña.TabIndex = 1;
             // 
             // label1
@@ -58,9 +60,9 @@
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Baskerville Old Face", 18F);
-            label1.Location = new Point(390, 291);
+            label1.Location = new Point(446, 388);
             label1.Name = "label1";
-            label1.Size = new Size(86, 27);
+            label1.Size = new Size(110, 34);
             label1.TabIndex = 2;
             label1.Text = "Usuario";
             // 
@@ -69,9 +71,9 @@
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Baskerville Old Face", 18F);
-            label2.Location = new Point(366, 346);
+            label2.Location = new Point(399, 458);
             label2.Name = "label2";
-            label2.Size = new Size(117, 27);
+            label2.Size = new Size(152, 34);
             label2.TabIndex = 3;
             label2.Text = "Contraseña";
             // 
@@ -81,9 +83,10 @@
             btnIngresar.BackgroundImageLayout = ImageLayout.Center;
             btnIngresar.Font = new Font("Baskerville Old Face", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnIngresar.ForeColor = SystemColors.ControlText;
-            btnIngresar.Location = new Point(522, 420);
+            btnIngresar.Location = new Point(610, 538);
+            btnIngresar.Margin = new Padding(3, 4, 3, 4);
             btnIngresar.Name = "btnIngresar";
-            btnIngresar.Size = new Size(132, 40);
+            btnIngresar.Size = new Size(151, 53);
             btnIngresar.TabIndex = 4;
             btnIngresar.Text = "Ingresar";
             btnIngresar.UseVisualStyleBackColor = false;
@@ -91,17 +94,18 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1174, 617);
+            ClientSize = new Size(1342, 823);
             Controls.Add(btnIngresar);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(txtContraseña);
             Controls.Add(txtUsuario);
             DoubleBuffered = true;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
