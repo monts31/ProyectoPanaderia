@@ -37,6 +37,8 @@ namespace ProyectoPanaderia.Backend
             }
         }
 
+
+        /// este metodo genera un reporte de ventas entre dos fechas, los parametros son las fechas de inicio y fin
         public DataTable reporte(DateTime inicio, DateTime fin)
         {
             DataTable tabla = new DataTable();
@@ -63,6 +65,8 @@ namespace ProyectoPanaderia.Backend
             }
         }
 
+
+        /// este metodo genera un reporte comparativo de ventas entre dos meses diferentes para los productos seleccionados y lo exporta a un archivo de Excel
         public void ExportarComparativoMesesAExcel(DateTime inicioMes1, DateTime finMes1, DateTime inicioMes2, DateTime finMes2,
         IEnumerable<int> productosSeleccionados,string rutaArchivo)
         {
@@ -118,16 +122,16 @@ namespace ProyectoPanaderia.Backend
                         ChartType = SeriesChartType.Column,
                         ChartArea = "Area",
                         IsXValueIndexed = false,
-                        XValueType = ChartValueType.String, // <--- ¡CORRECCIÓN CLAVE! Trata X como categoría de texto.
-                                                            //Color = Color.DarkOrange
+                        XValueType = ChartValueType.String, 
+                                                            
                     };
                     Series s2 = new Series("Mes 2")
                     {
                         ChartType = SeriesChartType.Column,
                         ChartArea = "Area",
                         IsXValueIndexed = false,
-                        XValueType = ChartValueType.String, // <--- ¡CORRECCIÓN CLAVE!
-                                                            //Color = Color.DarkGreen
+                        XValueType = ChartValueType.String, 
+                                                            
                     };
 
                     s1["DrawSideBySide"] = "True";
@@ -191,11 +195,10 @@ namespace ProyectoPanaderia.Backend
             
         }
 
-        //para mostrar en el chart las graficas en el formulario
-        public DataTable ObtenerDatosComparativo(
-    IEnumerable<int> productosSeleccionados,
-    DateTime inicioMes1, DateTime finMes1,
-    DateTime inicioMes2, DateTime finMes2)
+        //este metodo obtiene los datos comparativos de ventas entre dos meses para los productos seleccionados y los guarda en un DataTable
+        /// los parametros son una lista de ids de productos y las fechas de inicio y fin de los dos meses a comparar
+        public DataTable ObtenerDatosComparativo(IEnumerable<int> productosSeleccionados,DateTime inicioMes1, DateTime finMes1,
+        DateTime inicioMes2, DateTime finMes2)
         {
             if (productosSeleccionados == null || !productosSeleccionados.Any())
                 throw new Exception("No se recibieron productos.");

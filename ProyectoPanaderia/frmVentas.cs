@@ -50,6 +50,7 @@ namespace ProyectoPanaderia
             }
         }
 
+        //este metodo agrega el producto seleccionado al datagridview
         public void productoControl_Agregar(object sender, EventArgs e)
         {
             MostradoresProductos producto = sender as MostradoresProductos;
@@ -72,6 +73,7 @@ namespace ProyectoPanaderia
             cargarProductos();
         }
 
+        //este metodo confirma la orden y la registra en la base de datos
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             int prod = 0;
@@ -125,6 +127,7 @@ namespace ProyectoPanaderia
             }
         }
 
+        //este metodo remueve el producto seleccionado del datagridview
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == dataGridView1.Columns["Accion"].Index && e.RowIndex >= 0)
@@ -139,6 +142,7 @@ namespace ProyectoPanaderia
             }
         }
 
+        //este metodo cancela toda la orden actual
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             int prod = 0;
