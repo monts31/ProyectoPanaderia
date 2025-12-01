@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace ProyectoPanaderia.POJO
 {
+    /// Clase POJO para representar un empleado en el sistema de la panaderia.
     public class clsEmpleados
     {
+        /// Atributos de la clase clsEmpleados
+        /// getters y setters de cada atributo
         public int id_empleado { get; set; }
         public string nombre { get; set; }
         public string usuario { get; set; }

@@ -8,6 +8,8 @@ namespace ProyectoPanaderia.POJO
 {
     public class clsProductos
     {
+        /// Atributos de la clase clsProductos
+        /// Getters y Setters de cada atributo
         public int id_Producto { get; set; }
         public string nombre { get; set; }
         public string descripcion { get; set; }

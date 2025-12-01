@@ -15,6 +15,7 @@ namespace ProyectoPanaderia
 {
     public partial class frmVentas : Form
     {
+        /// Objeto de tipo clsEmpleados para almacenar el empleado actual.
         clsEmpleados empleadoActual = new clsEmpleados();
 
         public MostradoresProductos controller = new MostradoresProductos();
@@ -109,6 +110,7 @@ namespace ProyectoPanaderia
             }
         }
 
+        /// Evento click del boton regresar, que vuelve al menu correspondiente segun el rol del empleado.
         private void btnRegresar_Click(object sender, EventArgs e)
         {
             if (empleadoActual.rol == "Administrador")

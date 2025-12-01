@@ -16,6 +16,7 @@ namespace ProyectoPanaderia
 {
     public partial class frmReporteSencillo : Form
     {
+        /// Objeto empleadoActual para almacenar la información del empleado que está utilizando el formulario
         clsProductosConsultas productosConsultas = new clsProductosConsultas();
         clsAuditorias auditorias = new clsAuditorias();
         clsEmpleados empleadoActual = new clsEmpleados();
@@ -27,6 +28,7 @@ namespace ProyectoPanaderia
         public frmReporteSencillo(clsEmpleados empleado)
         {
             InitializeComponent();
+            /// Asignar el empleado recibido al objeto empleadoActual
             empleadoActual = empleado;
         }
 
@@ -215,6 +217,7 @@ namespace ProyectoPanaderia
             }
         }
 
+        /// Evento click del botón Regresar, que regresa al menú correspondiente según el rol del empleado.
         private void btnRegresar_Click(object sender, EventArgs e)
         {
             if (empleadoActual.rol == "Administrador")

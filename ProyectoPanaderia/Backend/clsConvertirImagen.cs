@@ -13,44 +13,38 @@ namespace ProyectoPanaderia.Backend
 {
     public class clsConvertirImagen
     {
+        /// metodo para convertir una imagen a un arreglo de bytes
         public static byte[] ImagenABytes(Image imagen)
         {
+            /// verifica si la imagen es nula
             if (imagen == null) return null;
 
+            /// utiliza un MemoryStream para guardar la imagen en formato JPEG
             using (MemoryStream ms = new MemoryStream())
             {
-                using (Bitmap bmp = new Bitmap(imagen))  // ← COPIA
+                /// Se crea una copia de la imagen para evitar errores
+                using (Bitmap bmp = new Bitmap(imagen)) 
                 {
-                    bmp.Save(ms, ImageFormat.Jpeg);     // ← YA NO FALLA
+                    /// Guarda la imagen en el MemoryStream en formato JPEG
+                    bmp.Save(ms, ImageFormat.Jpeg);
                 }
+                /// retorna el arreglo de bytes del MemoryStream
                 return ms.ToArray();
             }
         }
 
+        /// metodo para convertir un arreglo de bytes a una imagen
         public static Image BytesAImagen(byte[] bytes)
         {
+            /// verifica si el arreglo de bytes es nulo
             if (bytes == null) return null;
 
+            /// utiliza un MemoryStream para leer los bytes y crear la imagen
             using (MemoryStream ms = new MemoryStream(bytes))
             {
+                /// retorna la imagen creada a partir del MemoryStream
                 return Image.FromStream(ms);
             }
         }
-
-        //private byte[] ConvertirImg()
-        //{
-        //    ImageConverter img = new ImageConverter();
-        //    byte[] bytes = (byte[])img.ConvertTo(new Bitmap(//Aquí va tu imagen, typeof(byte[]));
-        //    return bytes;
-        //}
-
-        //private Image ByteAImagen()
-        //{
-        //    MemoryStream ms = new MemoryStream(//Aquí va tu imagen);
-        //    Bitmap bm = null;
-        //    bm = new Bitmap(ms);
-        //    return bm;
-
-        //}
     }
 }

@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace ProyectoPanaderia.POJO
 {
-    internal class clsAuditoria
+    /// Clase POJO para representar un empleado en el sistema de la panaderia.
+    public class clsAuditoria
     {
+        /// Atributos de la clase clsAuditoria
+        /// getters y setters de cada atributo
         public int id_Auditoria { get; set; }
         public int id_Empleado { get; set; }
         public string accion { get; set; }
