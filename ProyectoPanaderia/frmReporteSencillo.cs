@@ -30,6 +30,8 @@ namespace ProyectoPanaderia
             empleadoActual = empleado;
         }
 
+        
+        /// solo las fechas indicadas del año actual pueden ser seleccionadas
         private void frmReporteSencillo_Load(object sender, EventArgs e)
         {
             productosConsultas.cargarProductoLista(checkedListBox1);
@@ -42,6 +44,7 @@ namespace ProyectoPanaderia
             dtpFin.MaxDate = dtpInicio.MaxDate;
         }
 
+        /// este metodo genera el comparativo entre dos meses seleccionados y los muestra en una grafica de barras
         private void btnGenerar_Click(object sender, EventArgs e)
         {
             List<int> productosSeleccionados = new List<int>();
@@ -83,27 +86,27 @@ namespace ProyectoPanaderia
             ChartArea area = new ChartArea("Area");
             area.AxisX.Interval = 1;
             area.AxisX.LabelStyle.Angle = -45;
-            area.AxisX.MajorGrid.Enabled = false; // Mejor estética
+            area.AxisX.MajorGrid.Enabled = false; 
             area.AxisY.LabelStyle.Format = "C0";
-            area.AxisY.Minimum = 0;              // Buena práctica para gráficos de valor
+            area.AxisY.Minimum = 0;              
             chart1.ChartAreas.Add(area);
 
-            // Definición de Series
+            
             Series s1 = new Series("Mes 1")
             {
                 ChartType = SeriesChartType.Column,
                 ChartArea = "Area",
                 IsXValueIndexed = false,
-                XValueType = ChartValueType.String, // <--- ¡CORRECCIÓN CLAVE! Trata X como categoría de texto.
-                //Color = Color.DarkOrange
+                XValueType = ChartValueType.String, 
+              
             };
             Series s2 = new Series("Mes 2")
             {
                 ChartType = SeriesChartType.Column,
                 ChartArea = "Area",
                 IsXValueIndexed = false,
-                XValueType = ChartValueType.String, // <--- ¡CORRECCIÓN CLAVE!
-                //Color = Color.DarkGreen
+                XValueType = ChartValueType.String, 
+               
             };
 
 
@@ -126,7 +129,7 @@ namespace ProyectoPanaderia
             chart1.Titles.Add("Comparativo de Ventas entre Meses");
 
 
-            // 3. Guardar archivo
+            //  Guardar archivo
             SaveFileDialog save = new SaveFileDialog();
             save.Filter = "Excel (*.xlsx)|*.xlsx";
             save.FileName = "ReporteComparativo.xlsx";
@@ -134,7 +137,7 @@ namespace ProyectoPanaderia
             if (save.ShowDialog() != DialogResult.OK)
                 return;
 
-            // 4. Exportar
+            //  Exportar
             auditorias.ExportarComparativoMesesAExcel(
                 inicioMes1, finMes1,
                 inicioMes2, finMes2,
@@ -145,6 +148,8 @@ namespace ProyectoPanaderia
             MessageBox.Show("Reporte generado correctamente.");
         }
 
+       
+        /// este metodo genera el reporte entre dos fechas seleccionadas y las muestra en el datagridview
         private void btnFechas_Click(object sender, EventArgs e)
         {
             if (dtpInicio.Value > dtpFin.Value)
@@ -167,6 +172,8 @@ namespace ProyectoPanaderia
             ExportarReporte(dtpInicio.Value.Date, dtpFin.Value.Date);
         }
 
+        //este metodo exporta el reporte a excel usando closedxml libreria y ademas guarda el archivo en la ruta que el usuario elija
+        // es el reporte de las fechas de inicio y fin seleccionadas
         public void ExportarReporte(DateTime inicio, DateTime fin)
         {
             try

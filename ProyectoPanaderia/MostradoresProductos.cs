@@ -24,6 +24,7 @@ namespace ProyectoPanaderia
         {
             InitializeComponent();
         }
+        //este metodo carga los datos del producto en el mostrador
         public void CargarDatos(int id, string nombre, decimal precio, int stock, byte[] foto)
         {
             idProducto = id;
@@ -45,6 +46,7 @@ namespace ProyectoPanaderia
             }
         }
 
+        //este metodo verifica que el texto ingresado sea un numero valido y no mayor al stock disponible
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(textBox1.Text) || !textBox1.Text.All(char.IsDigit))
@@ -82,6 +84,7 @@ namespace ProyectoPanaderia
 
         }
 
+        //este metodo obtiene el precio del producto que se selecciono
         public int obtenerPrecio()
         {
             int c = 1;
